@@ -23,9 +23,11 @@ $toc-width: 16rem !default;
 $mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
 
 $hint-colors: (
+  note: rgb(55, 58, 58),
   info: #6bf,
   warning: #fd6,
   danger: #f66,
+  old: rgba(216, 18, 18, 0.692),
 ) !default;
 
 // Themes
@@ -45,6 +47,7 @@ $hint-colors: (
   --hint-color-info: #6bf;
   --hint-color-warning: #fd6;
   --hint-color-danger: #f66;
+  --hint-color-old: rgba(216, 18, 18, 0.692);
 }
 
 @mixin theme-dark {
@@ -63,4 +66,5 @@ $hint-colors: (
   --hint-color-info: #6bf;
   --hint-color-warning: #fd6;
   --hint-color-danger: #f66;
+  --hint-color-old: rgba(216, 18, 18, 0.692);
 }

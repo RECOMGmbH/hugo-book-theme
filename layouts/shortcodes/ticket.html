@@ -1,0 +1,4 @@
+{{ $number := "" }}
+<a href="https://redmine.recom.eu/issues/{{.Get "number" }}" number="{{.}}" class="book-btn{{ with .Get "class" }} {{ . }}{{ end }}">
+<img src="{{ "svg/ticket.svg" | relURL }}" class="book-icon" alt="Ticket #{{ .Get "number" }}" title="https://redmine.recom.eu/issues/{{ .Get "number" }}"/>
+{{ .Get "number" }}</a>

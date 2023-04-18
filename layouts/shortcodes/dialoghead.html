@@ -1,0 +1,16 @@
+<table>
+    <tr>
+    <td align=center>
+            <i font-style: italic; style="font-size: 13px">
+            {{ $imgMarkdown := printf "![%s](%s)" (.Get "caption") (.Get "url") }} 
+            {{ $imgMarkdown | .Page.RenderString }}
+            </i>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        {{ .Inner | .Page.RenderString }}
+    </td>
+</tr>
+</table>
+

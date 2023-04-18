@@ -1,0 +1,9 @@
+<table>
+    <tr>
+        <td>
+            {{ $imgMarkdown := printf "![%s](%s)" (.Get "caption") (.Get "url") }}
+            {{ $imgMarkdown | .Page.RenderString }}
+        </td>
+        <td>{{ .Inner | .Page.RenderString }}</td>
+    </tr>
+</table>

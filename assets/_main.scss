@@ -8,8 +8,6 @@ body {
   min-width: $body-min-width;
   color: var(--body-font-color);
   background: var(--body-background);
-
-  letter-spacing: 0.33px;
   font-weight: $body-font-weight;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -44,7 +42,7 @@ img {
 
 aside nav ul {
   padding: 0;
-  margin: 0;
+  margin: 5;
   list-style: none;
 
   li {
@@ -52,12 +50,19 @@ aside nav ul {
     position: relative;
   }
 
+ 
+
   a {
     display: block;
   }
-
+  
   a:hover {
-    opacity: 0.5;
+    flex: 1;
+    opacity: 1;
+    font-weight: bold;
+    color: rgb(107, 161, 177);
+    border-radius: 99px;
+    padding: 0px 0px;
   }
 
   ul {
@@ -115,7 +120,12 @@ ul.pagination {
   }
 
   a.active {
-    color: var(--color-link);
+    flex: 1;
+    font-weight: bold;
+    color: var(--tw-color-text-primary) !important;
+    background-color: rgb(107, 161, 177);
+    border-radius: 99px;
+    padding: 8px 10px;
   }
 
   input.toggle + label + ul {
@@ -222,6 +232,14 @@ body[dir="rtl"] .book-menu {
 
   small {
     opacity: 0.5;
+  }
+
+  /* custom added */
+  li {
+    margin: $padding-8 0;
+    padding: $padding-8;
+    background: var(--gray-200);
+    border-radius: $padding-4;
   }
 }
 

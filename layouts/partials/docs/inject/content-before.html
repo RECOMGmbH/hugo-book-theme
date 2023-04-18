@@ -1,0 +1,26 @@
+<!-- Block oben rechts mit den Optionen -->
+  <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-end;">
+    <p>
+    </p>
+    <p>
+      {{ with .Params.Git.LastCommitter }}
+      <small title="{{ .Name }} <{{ .Email }}>"><i class="fas fa-user"></i> {{ .Name }}</small><br>
+      {{ end }}
+      {{ with .Params.Git.LastCommitTime }}
+      <small><i class="far fa-clock"></i> {{ . }}</small><br>
+      {{ end }}
+      {{ with .Params.Git.EditLink }}
+      <small><i class="fab fa-github"></i> <a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ i18n "To Edit" }}</a></small><br>
+      {{ end }}
+      {{ $title := .Title }}
+      {{ with .Params.ReportBugs }}
+      <small><i class="fa-solid fa-bug"></i> <a href="{{ . }}?issue[subject]={{ $title }}" target="_blank" rel="noopener noreferrer">{{ i18n "Report Bug" }}</a></small><br>
+      {{ end }}
+    </p>
+  </div>
+  
+  {{if .Params.categories}}  
+  <h4>
+    <a href="{{.Site.BaseURL}}/categories/{{.Params.categories | urlize}}">{{.Params.categories}}</a>
+  </h4>
+  {{end}}

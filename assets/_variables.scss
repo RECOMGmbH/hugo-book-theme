@@ -1,3 +1,33 @@
 /* You can override SASS variables here. */
 
 // @import "plugins/dark";
+
+h1 {
+    font-size: 36px;
+    line-height: 40px;
+}
+
+h2 {
+    font-size: 28px;
+    line-height: 40px;
+}
+
+h3 {
+    font-size: 23px;
+    line-height: 40px;
+}
+
+h4 {
+    font-size: 19px;
+    line-height: 20px;
+}
+
+h5 {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+h6 {
+    font-size: 12px;
+    line-height: 20px;
+}

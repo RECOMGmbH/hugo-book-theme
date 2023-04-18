@@ -1,0 +1,33 @@
+{{ .Page.Scratch.Add "plantuml_id" 1 }}
+
+<p>
+<img id="plantuml-{{ .Page.Scratch.Get "plantuml_id" }}"/><br>
+{{ if ( .Get "caption" ) }}
+  {{ .Page.Scratch.Add "co_diagram" 1 }}
+  <i style="font-size: 13px">Diagramm {{.Page.Scratch.Get "co_diagram"}}: {{ .Get "caption" }}</i>
+{{ end }}
+</p>
+
+{{ if not (.Page.Scratch.Get "plantuml") }}
+<script src="{{ "rawdeflate.js" | relURL }}"></script>
+<script src="{{ "plantuml.js" | relURL }}"></script>
+{{ .Page.Scratch.Set "plantuml" true }}
+{{ end }}
+
+<script>
+  var deflater = window.SharedWorker && new SharedWorker('{{ "rawdeflate.js" | relURL }}');
+  if (deflater) {
+    deflater.port.addEventListener('message', done_deflating, false);
+    deflater.port.start();
+  } else if (window.Worker) {
+    deflater = new Worker('{{ "rawdeflate.js" | relURL }}');
+    deflater.onmessage = done_deflating;
+  }
+
+  function done_deflating(e) {
+    const img = document.getElementById("plantuml-{{ .Page.Scratch.Get "plantuml_id" }}");
+    img.src = "http://www.plantuml.com/plantuml/img/"+encode64(e.data);
+  }
+
+  compress("{{ .Inner }}")
+</script>

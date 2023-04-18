@@ -12,3 +12,13 @@
 
 - id: bookSearchConfig
   translation: '{ cache: true }'
+
+- id: To Edit
+  translation: Éditer
+
+- id: Report Bug
+  translation: Rapportez une erreur
+
+- id: Version
+  translation: Version
+
