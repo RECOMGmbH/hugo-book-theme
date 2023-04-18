@@ -42,7 +42,7 @@ img {
 
 aside nav ul {
   padding: 0;
-  margin: 5;
+  margin: 0;
   list-style: none;
 
   li {
@@ -50,19 +50,12 @@ aside nav ul {
     position: relative;
   }
 
- 
-
   a {
     display: block;
   }
-  
+
   a:hover {
-    flex: 1;
-    opacity: 1;
-    font-weight: bold;
-    color: rgb(107, 161, 177);
-    border-radius: 99px;
-    padding: 0px 0px;
+    opacity: 0.5;
   }
 
   ul {
@@ -120,12 +113,7 @@ ul.pagination {
   }
 
   a.active {
-    flex: 1;
-    font-weight: bold;
-    color: var(--tw-color-text-primary) !important;
-    background-color: rgb(107, 161, 177);
-    border-radius: 99px;
-    padding: 8px 10px;
+    color: var(--color-link);
   }
 
   input.toggle + label + ul {

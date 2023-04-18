@@ -1,8 +1,6 @@
-/* Dropdown-Menü für die Versionierung -Zusammenhang mit navbar-version-selector.html */
-
 /* Style The Dropdown Button */
 .dropbtn {
-  background-color: #7a7a7a;
+  background-color: #013476;
   color: white;
   padding: 12px;
   font-size: 15px;
@@ -22,7 +20,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #ffffff;
+  background-color: #A3D8F8;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -39,9 +37,8 @@
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: rgb(107, 161, 177);
-    color: #ffffff;
-    font-weight: bold;
+    background-color: #f1f1f1;
+    color: #013476
 }
 
 /* Show the dropdown menu on hover */
@@ -51,5 +48,5 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: #7a7a7a;
+  background-color: #013476;
 }

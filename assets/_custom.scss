@@ -1,11 +1,7 @@
-/* Hier können custom styles hinzugefügt werden. */
+/* You can add custom styles here. */
 
-/* CustomStyle - automatisches Nummerieren der Überschriften aktiviert. */
-@import "plugins/numbered";
-
-/* Breite des Menüs links. */
+// @import "plugins/numbered";
 $menu-width: 20rem;
-/* Breite des Inhaltsverzeichnisses rechts. */
 $toc-width: 20rem;
 
 @import "plugins/dropdown";

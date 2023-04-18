@@ -1,9 +1,7 @@
 <!-- Logo oben links -->
 <p><center><img src="https://docs.recom.eu/images/b4bc93b8-0221-4af0-9c60-ab123ab79e05.png" alt="Recom-Logo" height="50px" weight="100px"></center></p>
-<center>
 <h2 class="book-brand">
-  <a class="" href="{{ cond (not .Site.Home.File) .Sites.First.Home.RelPermalink .Site.Home.RelPermalink }}">
-  <span>Docs@RECOM</span>
+  <a class="flex align-center" href="{{ cond (not .Site.Home.File) .Sites.First.Home.RelPermalink .Site.Home.RelPermalink }}">
+  <span>{{ .Site.Title }}</span>
   </a>
 </h2>
-</center>

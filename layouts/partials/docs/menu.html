@@ -1,7 +1,6 @@
 <!-- Aufbau des Menüs links -->
 <nav>
 {{ partial "docs/brand" . }}
-{{ partial "docs/navbar-version-selector" . }}
 {{ partial "docs/search" . }}
 {{ if .Site.IsMultiLingual }}
   {{ partial "docs/languages" . }}
@@ -18,8 +17,6 @@
 
 {{ partial "docs/menu-hugo" .Site.Menus.after }}
 {{ partial "docs/inject/menu-after" . }}
-
-
 
 {{ partial "docs/menu-footer" .Site.Menus.after }}
 </nav>

@@ -4,7 +4,7 @@
     <div class="markdown-inner">
         <table border="5">
             <tr>
-                <td width="75%">
+                <td>
                     {{ $imgMarkdown := printf "![%s](%s)" (.Get "caption") (.Get "url") }}
                     {{ $imgMarkdown | .Page.RenderString }}
                 </td>
