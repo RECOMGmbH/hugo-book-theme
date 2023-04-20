@@ -96,12 +96,13 @@ ul.pagination {
 .book-brand {
   margin-top: 0;
   margin-bottom: $padding-16;
-
+  font-size: 24px;
+  
   img {
     height: 1.5em;
     width: 1.5em;
     margin-inline-end: $padding-8;
-  }
+   }
 }
 
 .book-menu {
