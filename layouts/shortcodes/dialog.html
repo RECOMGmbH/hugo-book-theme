@@ -4,6 +4,6 @@
             {{ $imgMarkdown := printf "![%s](%s)" (.Get "caption") (.Get "url") }}
             {{ $imgMarkdown | .Page.RenderString }}
         </td>
-        <td>{{ .Inner | .Page.RenderString }}</td>
+        <td>{{ .Inner | markdownify }}</td>
     </tr>
 </table>
