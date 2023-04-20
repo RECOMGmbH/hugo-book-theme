@@ -15,6 +15,7 @@
   h5,
   h6 {
     font-weight: normal;
+    // color: rgb(50, 153, 238);
     line-height: 1;
     margin-top: 1.5em;
     margin-bottom: $padding-16;
@@ -35,6 +36,7 @@
   h4,
   h5,
   h6 {
+    // geändert von bolder zu normal
     font-weight: normal;
   }
 
@@ -70,7 +72,7 @@
 
   code {
     padding: 0 $padding-4;
-    background: var(--gray-200);
+    background: var(--code-background);
     border-radius: $border-radius;
     font-size: 0.875em;
   }

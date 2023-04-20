@@ -1,6 +1,6 @@
 {{ if eq .Site.Params.WithInternals true }}
 <blockquote class="book-hint warning">
     <p><strong>Für Entwickler</strong></p>
-    {{ .Inner | .Page.RenderString }}
+    {{ .Inner | markdownify }}
 </blockquote>
 {{ end }}
