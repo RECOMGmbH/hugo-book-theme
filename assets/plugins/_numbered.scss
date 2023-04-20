@@ -6,14 +6,15 @@ $endLevel: 6;
     > h#{$currentLevel} {
       counter-increment: h#{$currentLevel};
       counter-reset: h#{$currentLevel + 1};
-
+      
       $content: "";
       @for $n from $startLevel through $currentLevel {
         $content: $content + 'counter(h#{$n})"."';
-      }
+            }
 
       &::before {
         content: unquote($content) " ";
+        
       }
     }
   }
@@ -22,7 +23,8 @@ $endLevel: 6;
 .book-toc nav ul {
   li {
     counter-increment: item;
-
+    color: var(--toc-color-hover);
+    
     &:first-child {
       counter-reset: item;
     }
@@ -30,7 +32,24 @@ $endLevel: 6;
     &:before {
       content: counters(item, ".") ". ";
       float: left;
-      
+            
     }
+  }
+
+  li:hover {
+    flex: 1;
+    opacity: 1;
+    font-weight: bold;
+    color: var(--toc-color-hover);
+    }
+
+  a:hover {
+    flex: 1;
+    opacity: 1;
+    font-weight: bold;
+    color: var(--toc-color-hover);
+    border-radius: 2px;
+    background-color: var(--toc-background);
+    padding: 0px 0px;
   }
 }

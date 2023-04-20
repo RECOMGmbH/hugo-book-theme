@@ -81,16 +81,4 @@
   .shownone { 
     display: none;
 }
-  // {{< iniparameter >}}
-.headcol {
-  position: absolute;
-  width: 4em;
-  left: 0;
-  top: auto;
-  border-top-width: 1px;
-  /*only relevant for first row*/
-  margin-top: -1px;
-  /*compensate for top border*/
-}
-
 }
