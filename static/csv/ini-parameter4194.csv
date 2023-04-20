@@ -1,0 +1,168 @@
+﻿;\daten\info\skalen\?SPRACHE?\;;Die Skalen-Info-Texte müssen in folgendem Verzeichnis liegen (SPRACHE ist abhängig von der Primär definierten Sprache de-DE oder fr-FR).;
+;aktivStation=<kurzbezeichnung>;<kurzbezeichnung> funktioniert sowohl mit STATABKURZUNG als auch mit STATBEZEICHNUNG;Vorauswahl der angegebenen OE im LogIn, nur an lokalem Arbeitsplatz verwenden, auf einem Terminalserver betrifft dies ALLE Anwender.;LogIn
+;AllowEditMedication;0=gesperrt<br>1=erlaubt;Sperrt die Bearbeitung der Medikation in GRIPS (Definition, Änderung, Absetzen, Abzeichnung nicht möglich).;
+;AllowInsertMedForBerstatus=x;;Erlaubt es Mitarbeitern mit einer Qualifikation aus Ber_status=x, neue Medikamente in der DB anzulegen. Ohne Eintrag dürfen dies weiterhin nur Administratoren.;
+;allowIntervPlaningForContext;0=deaktiviert<br>1=aktiviert;Erlaubt einer bestimmten Personengruppe ein definiertes Maßnahmen-Cluster zu planen (für Mobilen Dienste Österreich). // Änderungsmöglichkeit von geplanten Maßnahmen für Hilfskräfte (Im Freitextfeld können Hilfskräfte Ergänzungen hinzufügen).;
+;allowIntervReworkForContext;0=deaktiviert<br>1=aktiviert;Erlaubt einer bestimmten Personengruppe geplante Maßnahmen im Durchführungsnachweis direkt zu verändern ohne in den Bearbeitungsmodus zu gehen (für SHD Luxemburg) // DB: Tabelle GR_ALLOW_REWORK_PLAN<br>QUALI_ID = Wert aus GR_SYSLISTTEXT, also der Filter, der bei der Maßnahme geplant sein muss, damit sie bearbeitbar für Hilfskräfte wird<br>FUNKGR_ID= FUNKGR_ID aus PERS_FUNKTIONS, die Personengruppe, die dann die Maßnahmen im obigen Filter verändern darf.;
+;AllowSystemTimeshiftToServer;0=deaktiviert<br>1=aktiviert;WINDOWSZEIT DARF NICHT MEHR WIE 5 MINUTEN ABWEICHEN, ansonsten gibt es eine Warnmeldung und GRIPS wird beendet. Dies kann durch den Parameter umgangen werden. Darf NUR INTERN benutzt werden !!;INTERN
+Veraltet ab 4.19;AnamnesLockActive=1;;(funktioniert anscheinend seit Anamnese-Merge nicht mehr)<br>Blockiert das zweite Öffnen der Anamnese des gleichen Patienten und zeigt an, wer seit wann die Anamnese in Bearbeitung hat.;
+;askforreasonsondefinitions;0=deaktiviert<br>1=aktiviert;Begründung für Absetzung eines Medikamentes muss zwingend eingegeben werden.<br>Arztauswahl, der die Absetzung verordnet hat.;
+;askforreasonsonsignoffs;0=deaktiviert<br>1=aktiviert;"Begründung für außerplanmäßige Gabe von Maßnahmen muss zwingend eingegeben werden.
+<br> Bsp.: Medi-Gabe war geplant für 08:00 Uhr, wurde aber um 10:00 Uhr gegeben = Begründung erforderlich.";
+;AssertSqlContradiction;0=Unterbinden<br>1=Aktiv lassen (Standard);Opt-Out: Prüfung auf Kontradiktion (z.B. 'where 1=0') in den Statements unterbinden.;
+;autoCloseDokWindow;Wert angeben;Schließt Zeitstrahldokument nach x Minuten wenn in GRIPS nicht gearbeitet wird.;
+;AutoFillPatNrAufNr;0=deaktiviert<br>1=aktiviert;Wenn keine PatNR und oder Aufnr bekannt ist zur Eingabe, dann werden generische Pseudowerte erstellt.;
+;AvoidSameNameGebDat;0=deaktiviert<br>1=aktiviert;Vermeidet, dass Patienten mit dem selben Namen und Geburtsdatum doppelt angelegt werden.;
+;AvoidSameNameGebDatSVersNum;0=deaktiviert<br>1=aktiviert;Vermeidet, dass Patienten mit dem selben Namen, Geburtsdatum und Matricule (Sozialversicherungsnummer) doppelt angelegt werden.;
+Veraltet, bis 4.19.3;callNewLoginDialog;0 = alte Maske C++<br>1 = neue Maske C#;Aktiviert die neue Anmeldemaske.;LogIn
+;CharismaAddress=http://[IP-Adresse]:[Port]/api/;;Wenn Charisma-URL in GRIPS ini gesetzt, dann läuft der GDB über Charisma.<br>Wenn Eintrag nicht vorhanden, dann funktioniert GDB ohne Charisma.;
+;check=a;;Es wird keine Freischaltung benötigt.;
+;DeactivateMediHausliste;0=aktiviert<br> 1=deaktiviert;"Deaktiviert das Häkchen in der Medikation bei ""in Hausliste suchen"".";
+;definitionsMode;0=deaktiviert<br>1=aktiviert;Aktiviert den Pflegeaufwandsänderungsmodus im Interventionsdialog (PPR) + Mikrostandardzuordnung.;
+;deleteAnamnesisGroup;0=deaktiviert<br>1=aktiviert;"Im Anamnese-Formular erscheint unten der Button ""Anamnese leeren"" für das Löschen von Anamnese-Bereichen .";
+;deleteCareEvaluationGroup;0=deaktiviert<br>1=aktiviert;"Im Pflegevisiten-Formular erscheint unten der Button ""Pflegevisite leeren"" für das Löschen von Pflegevisiten-Bereichen .";
+;documentLookup;0=deaktiviert<br>1=aktiviert;Beim Speichern einer Anamnese werden Anamnese-Daten in die Datenbank-Tabelle gr_documentlookup geschrieben.;
+;doELGAExport;0=deaktiviert<br>1=aktiviert;ELGA Export aktivieren.<br>Button auf PatientForm wird aktiviert.;
+;doNotReloadPatList_AnamChange;0=deaktiviert<br>1=aktiviert;"Sorgt dafür, dass bei Start über die GRIPS-Starter.exe beim Speichern einer Anamnese nicht alle Patienten/Klienten im Navigator neu geladen werden.
+<br>Dies macht vor allem bei den großen mobilen Diensten Probleme, da die tausende von Patienten/Klienten auf einer ""Station"" haben = Performanceprobleme.";ILOGS, Volkshilfe-Wien
+;doNotShowEigenePflegeDiagnosen;0=deaktiviert<br>1=aktiviert;Im ENP-Baum den Eintrag „Zusätzliche Pflegeprobleme“ ausblenden.;
+;doppelteAnmeldung;;Schränkt doppelte Anmeldungen ein, oder verhindert diese.;LogIn
+;DosingAddress=vaid.local.recom.lan;;Stellt die Verbindung zum Dosing-Service her.;
+;DruckDialogVorAusdruck;0=deaktiviert<br>1=aktiviert;Blendet den Druckdialog ein, in diesem kann der Drucker ausgewählt werden.;
+;"ELGA-Config<br>
+dir=C:\Grips_Projekt\ELGA_CDA\ELGA_DOCs<br>
+show=true";;Parameter für ELGA Export exe.;
+;ELGAStartExeWithPath=.\elga_cda.exe;;Parameter für ELGA Export exe.;
+;ELGAStartExeWithPath=C:\Grips_Projekt\ELGA_CDA\elga_cda.exe;;Parameter für ELGA Export exe.;
+;EnableLoggingOfExceptionsToDatabase;0=deaktiviert<br>1=aktiviert;MadExcept: Aktiviert die Speicherung der Exceptions in der Tabelle gr_exception_logs.;
+;enablesqlmonitorsupport;0=deaktiviert<br>1=aktiviert;Exceptions und Debuggen.;
+;EnableSubstancesAdministration;"0 = In der Definitionsmaske steht nur die Produktsuche zur Auswahl<br>1 = In der Definitionsmaske steht nur die Wirkstoffsuche zur Auswahl<br>2 = In der Definitionsmaske steht sowohl die Produkt- als auch Wirkstoffsuche zur Auswahl, allerdings wird bei ausgewähltem Hausliste-Häkchen immer die Wirkstoffsuche herangezogen (Weiden Feature)<br>3 = In der Definitionsmaske steht sowohl die Produkt- als auch Wirkstoffsuche zur Auswahl, aber andere Ausgabelogik: Wirkstoffe im Rang absteigend + KEINE Entsprichtstoffe mehr aus + bei Programmeinstellung ""Wirkstoff statt Produktbezeichnung"" werden die Ausnahmemedikamente (IS_HLIST=1) der Wirkstoffanordnung mit der Produktbezeichnung dargestellt";Aktiviert die Wirkstoffsuche !!!! ACHTUNG: MODUL IST LIZENZPFLICHTIG !!!!;
+;ExecuteMigrationsOnStartUp;0=deaktiviert<br>1=aktiviert;Fehlende Migrationen beim Start ausführen.;
+;ExitDialog;0=aktiviert;Ergänzung zum externen Programmaufruf von GRIPS: Dann kommt die Abfrage ob man GRIPS beenden möchte erst gar nicht und GRIPS CheckDoku wird nach der Meldung, dass die Station, der Patient nicht gefunden wurde gleich beendet.;
+;exportLEPReportCVSPath=.\Daten\LEP-Report-csv-export\;;Dateipfad für den Export der LEP-Reportlisten als CSV-Datei.;
+;ExportMode;"0=beides ausgeblendet<br>1=??<br>2=blendet Hilfe ""Auswertungsexport alle Stationen"" ein (nicht für Kunden gedacht, nur für interne Zwecke)";"Aktiviert in der Menüleiste die Option ""Zeitwertstatisik vorbereiten"".";
+;exportReportCVS;0=deaktiviert<br>1=aktiviert;Export der Reportlisten als CSV-Datei aktivieren.;
+;exportReportCVSPath=.\Daten\csv-export\;;Dateipfad für den Export der Reportlisten als CSV-Datei.;
+;forceHighQualityPassword;0=deaktiviert<br>1=aktiviert;Erzwingt eine hohe Passwortqualität.;
+;hideDemoStationen;0=deaktiviert<br>1=aktiviert;Demostationen in der Anmeldemaske ausblenden.;
+;hideHelpMenuitems;0=deaktiviert<br>1=aktiviert;Menü-Einträge (Online-Support (PC-Visit), GRIPS-Windowshilfe und GRIPS-Hilfe PDF) deaktivieren. Hilfe-Menü-Konfigurieren, siehe [Ticket](https://redmine.recom.eu/issues/11696);
+;HideInTaskbar;0=deaktiviert<br>1=aktiviert;Einstellungen für ILOGS-Anwendung.;ILOGS
+;HideLanguageMenue;0=deaktiviert<br>1=aktiviert;Deaktivieren der Funktion Sprache wechseln (Deutsch/Französich).;Luxemburg
+;HideQualificationInAnamnesis;0=deaktiviert<br>1=aktiviert;Qualifikationen im Anamnese-Archiv ausblenden.;
+;HideSignOffAtBsCorrectionTable;0=deaktiviert<br>1=aktiviert;"Keine Abzeichnung möglich in Diabetesprotokoll, Intervention ""BZ-Korrektur"" (intervent_id=163), wenn bei der Definition ""BZ-Korrektur anhand einer Korrekturtabelle"" ausgewählt wurde.";
+Veraltet ab 4.16;HideStuffOfNoInterest;0=deaktiviert<br>1=aktiviert;"Blendet folgende Programmteile für nicht-Administratoren aus: Mitarbeiter u. Allgemeines im Navigator, bei den Tabsheets werden Allgemein, Schichtbesetzung und Parameter ausgeblendet. Das Ausblenden wird jetzt in den erweiterten 
+Programmeinstellungen realisiert!";
+;inDebugMode;0=deaktiviert<br>1=aktiviert;INTERN ermöglicht ENP inhaltliche Parameterüberarbeitung (??);Luxemburg
+;inDebugMode2;0=deaktiviert<br>1=aktiviert;;Luxemburg
+;KISHL7Anbindung; 0=<br>1=Entlassung über das Programm gesperrt und ist nur über die HL7-Schnittstelle möglich;Dieser Wert sollte 0 sein, wenn KEIN KIS-System die PID in der Anamnese befüllt.<br> dann wird bei einer Korrektur der PID die alte überschrieben und kein neuer Aufenthalt angelegt.<br>bei der Entlassungsanamnese werden die Eingabe von Datum und Uhrzeit überprüft, wenn NICHT KISHL7Anbindung=1 ist;
+;"language_f0=deutsch<br>
+language_f1=französisch<br>
+language_f0_locale=de-DE<br>
+language_f1_locale=fr-FR<br>
+language_f1_Database=XXX\grips-fr.gdb<br>
+initLanguage=0";1 = Deutsch<br>2 = Französisch<br>3 = Italienisch<br>4 = Englisch<br>5 = Spanisch;Definition der Sprachdatenbanken.;Luxemburg
+;LdapAuthenticationType=ntlm;;Authentifizierungsmethode für eine Verbindung ntlm | negotiate | basic | anonymous | digest … <br>[siehe](https://docs.microsoft.com/de-de/dotnet/api/system.directoryservices.protocols.authtype?view=netframework-4.8);LogIn
+;LdapDomain=wotan.local.recom.lan;;Adresse des LDAP-Authentifizierungs-Servers.;LogIn
+;LdapProtocolVersion;2 = ldap2<br>3 = ldap3;Protokollversion;LogIn
+;Locale=de-DE ;;Deutsch;
+;Locale=fr-FR;;Französisch;
+;Locale=it-IT;;Italienisch;
+;LockPsychBerichtZeitstrahl;0=deaktiviert<br>1=aktiviert;Berichte von der Gruppe Psychologen können nicht von anderen Berufsgruppen eingesehen werden.;
+Veraltet, bis 5.20.2;LoginAllowEmployeesOfParentOrgUnit;0=Aus (Standard)<br>1=Ein;Erlaube Mitarbeiter einer übergeordneten OE die Anmeldung an untergeordneter OE.;LogIn
+;LoginDialogMode;0 = einstufig kompakt (OE/Benutzer/PW) (Standard)<br>1 = einstufig kompakt (Benutzer/OE/PW)<br>2 = zweistufig (1. Anmeldename/Passwort, 2. OE/Funktion, bei Single sign-on wird erste Stufe übersprungen, Single sign-on bedeutet UserAuthenticationMode=2);Bestimmt die Anmeldemaske in neuen Programmversionen. (Hat callNewLoginDialog abgelöst);LogIn
+;LoginPreselectedOrgUnit=<kurzbezeichnung>;<kurzbezeichnung> funktioniert sowohl mit STATABKURZUNG als auch mit STATBEZEICHNUNG;Vorauswahl der angegebenen OE im Login, nur an lokalem Arbeitsplatz verwenden, auf einem Terminalserver betrifft dies ALLE Anwender . (Hat aktivStation=<kurzbezeichnung> abgelöst.);LogIn
+;LoginPreselectLastOrgUnitAtLogoff;0=Aus<br>1=Ein (Standard);Vorauswahl der zuletzt verwendeten OE nach einer Abmeldung.;LogIn
+;luxAccountingTourDurationInMinutes;Wert angeben;Hier wird eingestellt, wieviele Minuten (z.B. 30) vor und nach einer Abzeichnung fiktiv als Tour betrachtet werden, um zum Beispiel zu prüfen, ob eine Abzeichnung die alleinige auf einer Tour war.<br>In Abhängigkeit dessen werden unterschiedliche Abrechnungspositionen ausgelöst in Luxembourg.;Luxemburg
+;LuxConfig1;0=deaktiviert<br>1=aktiviert;Ausblenden von Auswertungsmaske (PPR,MDK,ICD10,OPS) - Station und Patientenmaske, Bestellung von Medikamenten - Text in Programmeinstellung wird ausgeblendet.;Luxemburg
+;LuxCorrectLeistungsDauer;0=deaktiviert<br>1=aktiviert;INTERN Korrekturschleife, die die Leistungsdauer der Interventionen unter 100min schreibt und neu abspeichert.;Luxemburg
+;MarkDoctorOrder;0=deaktiviert<br>1=aktiviert;Setzt die angeordneten Dialogboxinhalte der Maßnahme auf read_only (CHEM-Projekt ärztliche Anordnungen via HL7).;CHEM
+;MergeCarePlanSignoffsOnSave;0=deaktiviert<br>1=aktiviert;Zusammenführen der Abzeichnungen beim Speichern // Aktiviert das Mergen von Pflegeplanabzeichnungen;
+;MergeTimelineOnSave;0=deaktiviert<br>1=aktiviert;Aktiviert das Mergen von Zeitstrahlabzeichnungen.;
+;messageTracking;0=deaktiviert<br>1=aktiviert;Benutzerbewegungen per INI ein-/ausschalten können.;
+Veraltet ab 4.19;MicroStdCallKind;1=PDF<br>2=Word;Mikrostandards in der Pflegeplanung (Pfad).<br>regelt welche Dokumentart bei den MicroStandards geöffnet wird<br>veraltet (es werden nur noch pdf's zugeordnet).;
+Veraltet ab 4.19;MicroStdPfad=.\Daten\Standards_mikro\     oder ein frei definiert Pfad;;Mikrostandards in der Pflegeplanung (Pfad).;
+;MoccaName=MOCCA;0=deaktiviert<br>1=aktiviert;MOCCA-Button einblenden.;ILOGS
+;MOCCAName=Mocca;;Einstellungen für ILOGS-Anwendung.;ILOGS
+;MultiLoginMode;1 = zulassen aber warnen<br>2 = alte Anmeldung wird beendet<br>3 = neue Anmeldung wird nicht zugelassen;Einstellungen zur doppelten Anmeldung in GRIPS (Standard=1). (Hat doppelteAnmeldung abgelöst.);LogIn
+;onlinemode=onlinemode;;Onlinemode;
+;onlyOneNotDoneReasonSelectable;0=deaktiviert<br>1=aktiviert<br>2=aktiviert, zusätzlich wird auch noch das Feld für die Freitexteingabe ausgeblendet;"Ermöglicht bei Abzeichnung ""nicht durchgeführt"" nur einen Grund bei der Begründung anzugeben.";
+;PatientBaum;0=deaktiviert<br>1=aktiviert;Nur ein Patient wird geladen (bei Aufruf über Fremdsystem).;
+;PatNeuAufnahme;0=ausblenden<br>1=einblenden;Ausblenden des Neuaufname-Buttons.;
+;PDFCloseAfterExport;0=deaktiviert<br>1=aktiviert;Beende Anwendung nach einmaligem Export damit es immer vom Sceduler aufgrufen werden kann.;
+;PDFCount=2;;;
+;pdfHelpPathName.\Hilfe\GriPS-Hilfe_DE.pdf;;Pfad und Aufruf zur GRIPS-Hilfe.;
+;pdfHelpPathName=.\Hilfe\GriPS-Hilfe_DE.pdf;;Pfad und Aufruf zur GRIPS-Hilfe.;
+;PDFInterval=2;;;
+;PDFReportPath=.\Temp\;;PDF Generierung.;
+;PersGruppe; 1=Deutschland<br>2=Schweiz<br>3=Österreich<br>4=Luxemburg);Länderspezifische Bezeichnung der Mitarbeiterfunktion.;
+;Pfad= [Hauptordner von GriPS] \RecomDocuments\de-DE\Microstandards\ [Hier müssen die PDF-Dateien hin];;Mikrostandards müssen sich in diesem Ordner befinden.<br>Pfad ist hardcodiert!;
+;PflegehelferMediAbzeichnung;0=deaktiviert<br>1=aktiviert;Pflegehelfer dürfen Medikamente abzeichnen. ;Österreich
+;PKMS_Buch_Active;0=aktiviert;PKMS-Buch-Icon anblenden.;
+;"PKMS_Buch_executeStr="".\MemoryManager_Test.exe""";;Pfad zum öffnen des Buchs.;
+;PKMS_MDK_Feature;0=deaktiviert<br>1=aktiviert;Beim Aufruf des PKMS-Plans wird dieser mit dem Beginn des Aufnahmedatums angezeigt (MDK-Einstellung).;
+;PKMS_Parameter11;0=gesperrt<br>1=erlaubt;nur CheckDoku<br>Stationsanlage im PKMS Tool.;
+;printGreatReportHeadline;Wert angeben;Schriftgröße der BerichtsInfozeile für NEUE EINTRÄGE anpassen., individuell: Sinnvolle Werte > 10 <> 20 <> 30 <;
+;prog1_activ=1;;Starten von externen Programmen wie z.B. Notepad.;
+;prog1_caption=notepad1;;;
+;prog1_exewithpath=notepad.exe;;;
+;prog1_extendedCall=1;;"Erweiterter Aufruf, folgende Parameter werden übergeben: ""patnr patId aufnr handzeichen"", ansonsten wird nur ""patnr"" übergeben.";
+;prog1_HideProgram=1;;Das Programm wird versteckt aufgerufen.;
+;prog2_activ=1;;;
+;prog2_caption=notepad2;;;
+;prog2_exewithpath=notepad.exe;;;
+;prog2_extendedCall=1;;"Erweiterter Aufruf, folgende Parameter werden übergeben: ""patnr patId aufnr handzeichen"", ansonsten wird nur ""patnr"" übergeben.";
+;prog2_HideProgram=1;;Das Programm wird versteckt aufgerufen.;
+;prog3_activ=1;;;
+;prog3_caption=notepad3;;;
+;prog3_exewithpath=notepad.exe;;;
+;prog3_extendedCall=1;;"Erweiterter Aufruf, folgende Parameter werden übergeben: ""patnr patId aufnr handzeichen"", ansonsten wird nur ""patnr"" übergeben.";
+;prog3_HideProgram=1;;Das Programm wird versteckt aufgerufen.;
+;prohibitaccesstoforeigncustomer;0=deaktiviert<br>1=aktiviert;Verbietet den Zugriff auf Kunden die nie auf einer Station des Mitarbeiters lagen. Stationen werden dann auch bei Patientensuchen ausgeblendet (Suche, Wiederaufnahme, Daten betrachten).;
+Veraltet ab 4.19;RecomDocuments=.        oder ein frei definiert Pfad;;Mikrostandards in der Pflegeplanung (Pfad).;
+;restartAfterXHours=x;Wert angeben;Startet GRIPS nach x Stunden neu (z.B. x=5 startet nach 5 Stunden neu). die Überprüfung erfolgt erst, wenn die Anmeldemaske geöffnet ist.;
+;restartAfterXMinutes=x;Wert angeben;Startet GRIPS nach X Minuten neu, z.B. x=5 startet nach 5 Minuten neu. Minimum ist x=2, bei x=1 funktioniert es nicht.;LogIn
+;SearchList1Caption=Top 10 Liste;;Top 10 Liste in GRIPS innerhalb Pflegeplan/ENP.;
+;showAddTimezoneUhrzeitDlg;0=deaktiviert<br>1=aktiviert;Bei der Zeitplanung einer Massnahme erscheinen hiermit zusätzliche Zeitkorridore: nämlich MORGENS2, MITTAGS2, … und es wird jeweils die Zeitspanne unter den Button angezeigt. HINWEIS: NUR RELEVANT FÜR SHD und CRL !!!;Luxemburg
+;ShowConflictWindowMenuEntry;0=deaktiviert<br>1=aktiviert;Einstellungen für ILOGS-Anwendung // INTERN temporärer Eintrag zu Bearbeitngszwecken (??) // Aktivieren des AnamneseKonflikt-Tools;ILOGS
+;showDoctorNumber;0=deaktiviert<br>1=aktiviert;Einblenden der Arztnummer (ext. Ärzte) in der Anamnese.;
+;ShowENPDignoseDefinition;0=deaktiviert<br>1=aktiviert;Blendet die Programmeinstellung ein, die es ermöglicht in ENP zu den Pflegediagnosen, Kennzeichen und Ursachen Definitionsinformationen per Mouseover anzuzeigen.;
+;ShowENPDlgExplanation;0=deaktiviert<br>1=aktiviert;Blendet die Programmeinstellung ein, die es ermöglicht in ENP zu den Pflegediagnosen, Kennzeichen und Ursachen Definitionsinformationen per Mouseover anzuzeigen.;
+;showFullStacktrace;0=deaktiviert<br>1=aktiviert;Exceptions und Debuggen.;
+;showLuxAccountingIntervention;0=deaktiviert<br>1=aktiviert;Abrechnung Luxemburg aktivieren.;Luxemburg
+;showLuxAccountingInterventions;1 = Zeigt das Fenster mit den Luxemburg-Versicherungsleistungen<br>2 = Nur MA mit Qualifikation Cadre oder Pflege-Administratoren sehen den Button für die Vergleichstabelle mit  Abrechnungspositionen im Pflegeplan;;Luxemburg
+;ShowPatientToUserFilter;0=deaktiviert<br>1=aktiviert;Im Navigator und allen Patientenauswahl-Dialogen scheinen nur die Primär- und Sekundärzugeordneten Patienten/Bewohner des Mitarbeiters auf.;
+Veraltet bis 4.19.2;ShowReportGenerator;0=deaktiviert<br>1=aktiviert;ReportGenerator anzeigen.<br>benötigt ab 4.19.3 eine Lizenz.;
+;ShowWundDoc;0=deaktiviert<br>1=aktiviert;Wunddoku;
+;SqlTracing;0=Aus (Standard)<br>1=Ein;Alle SQL-Befehle werden in eine Log-Datei geschrieben: in die .logs\grips_*.log;
+;StartWithGDB;0=deaktiviert<br>1=aktiviert;Aktiviert den GRIPS-Dokumentenbetrachter.;
+;StartWithReadOnlyDB;0=deaktiviert<br>1=aktiviert;Wird für PDF-Erzeugung aus einer readonly SicherungsDB benötigt ==> keine Schreibzugriffe auf die DB in den Auswerteroutinen.;
+;StationAusAufruf;0=deaktiviert<br>1=aktiviert;Bei Externen Aufruf die aktive Station ausschließlich aus den Parametern verwenden da Patienten mehreren Bereichen zugeordnet sein können.;ILOGS
+;symmetrixapiuri;Beispiel für die URL beim Produktivupdate mit Toolmigrator: symmetrixapiuri=http://localhost:31416/api/;Ist der Server nicht erreichbar, können keine Migrationen ausgeführt werden (das gilt auch für Testumgebungen) dies kann ebenfalls explizit deaktiviert werden. In diesem Fall kommt für jede erkannte Änderung eine Dialogbox die die entsprechende Tabelle beinhaltet.;Luxemburg
+;SystemDocuments=.        oder ein frei definiert Pfad;;Pfad ähnlich wie RecomDokuments z.B. für Skalen;
+;UhrzeitDefNurZeitbereiche;0=deaktiviert<br>1=aktiviert;"Zeigt in der Maßnahmendialogbox bei der Zeitdefinition von ENP die Auswahl ""Termin"" und ""Variable"" an";ILOGS
+;updatemode;"exe = grips.exe, grips.ini werden aktualisiert<br>all = gesamte Verzeichnis der Quelle wird lokal aktualisiert. Alte Dateien bleiben erhalten, Neue werden ergänzt, Bestehende aktualisiert.
+<br>sync = gesamte Verzeichnis der Quelle wird lokal aktualisiert. Alte Dateien, die in der Quelle nicht mehr vorhanden sind, werden gelöscht, Neue werden ergänzt, Bestehende aktualisiert.";Stellt den Updatemode ein;
+;updateverzeichnis=C:\GRIPS\<br>ODER<br>updateverzeichnis=\\qnap-kassel\filesharing-kassel\Temp\..\GRIPS\;;"Setzt ein Updateverzeichnis, in dem sich Quelldateien für ein Update lokal oder über ein Netzwerk befinden. ""Updatemode"" muss zusätzlich angegeben werden (s.u.). Mittels GRIPS_II_Starter.exe wird der Kopiervorgang und anschließend GRIPS gestartet. Generell wird initial nur eine GRIPS_II_Starter.exe + grips.ini benötigt. Alles andere wird dann automatisch von der Quelle kopiert (Ausnahme: updatemode=exe).";
+;UseABDAMedi;1=ABDA (gilt für Deutschland)<br>2=APO (gilt für Österreich)<br>3=Belgisch/Luxemburg;Medikamenten-Datenbank aktivieren.;
+;useBeiBedarfAusw;0=deaktiviert<br>1=aktiviert;"Zeigt in der Maßnahmendialogbox von ENP die Auswahl ""Bei Bedarf"" an.";
+;UseCheckRoomAndBedAnamnese;0=deaktiviert<br>1=aktiviert;Überprüft, ob die in der Anamnese eingegebenen Raum- und Bettbezeichnungen tatsächlich existieren.;
+;UseDoctorOrder;0=deaktiviert<br>1=aktiviert;Aktiviert im ENP-Baum einen neuen Ast für neue angeordnete Maßnahmen (CHEM-Projekt ärztliche Anordnungen via HL7);CHEM
+;useE_DISPLCONT;0=deaktiviert<br>1=aktiviert;Ad-hoc – Leistungstexte die über Mocca-PDA erfasst werden in GRIPS angezeigt (verwende E_DISPLCONT bei Eventdarstellung), siehe [Ticket](https://redmine.recom.eu/issues/35168);ILOGS
+;useESante;0=deaktiviert<br>1=aktiviert;Aktiviert das Versenden von Überleitungsinformationen an eSante.<br>Button im Überleitungsbogen scheint auf.;
+;useFeiertageAusw;0=deaktiviert<br>1=aktiviert;"Zeigt in der Maßnahmendialogbox von ENP die Auswahl ""auch an Feiertagen"" und ""nur an Feiertagen"" an.";ILOGS
+;useHardConnect;0=deaktiviert<br>1=aktiviert;useHardConnect wird für lokale AuswertungsDB Connections benötigt wenn Windoewsauthentifikation MSSQL.;
+;UseLoginNameAsLogin;0=Aus (Standard)<br>1=Ein;Verwendung des Anmeldenamens anstelle des vollen Namens der Mitarbeiter.;LogIn
+;UseLogoForOE;0=deaktiviert<br>1=aktiviert;"Es wird im Icons-Verzeichnis nach dem ""LOGO_stationID.bmp"" gesucht, wenn deaktiviert, dann wird das Laden wie vorher durchgeführt => stationID = Station (ID).";
+;UseMd5Password;0=deaktiviert<br>1=aktiviert;Die Spalte pflgpers.pflegepasswordmd5 für die Passwortüberprüfung verwenden.;LogIn
+;useOrgunitGroup;0=deaktiviert<br>1=aktiviert;Baumstruktur in der Anmeldemaske<br>!Achtung! zusätzlich sind noch Datenbankeinträge child_ID und parent_ID in WS_ORGUNITGROUP notwendig um die Zuordnung von Organisationseinheiten zu den Untereinheiten zu schaffen.<br>Die Organisationseinheiten müssen in der Datenbank zugeordnet werden:<br>- ParentID ist die übergeordnete Einheit<br>- ChildID ist die untergeordnete Einheit<br>- Verwendung im C#-Code nur für Berechtigungen;
+;UserAuthenticationMode;0 = GriPS Alt<br> 1 = Ldap/Active Directory direkt<br>2 = Single sign-on (nur mit LoginDialogMode=2)<br>3 = GriPS mit Password aus ActiveDirectory (offline)<br>5 = Md5 (macht UseMd5Password=1 obsolet);;LogIn
+;useVariabelTerminAusw;0=deaktiviert<br>1=aktiviert;Blendet die Uhrzeiten in der Dialogbox bei der Zeitdefinition aus.;ILOGS
+;warnIfNoInterventionDuration;0=deaktiviert<br>1=aktiviert;Wenn in der Dialogbox einer Massnahme eine Zeit frei eingetragen werden könnte, dies aber nicht gemacht wurde und die Massnahme auch sonst keinen fest hinterlegten ENP-Zeitwert besitzt, erscheint eine Warnung.;
+;warningNothingSelectedInterventionDialog;0=deaktiviert<br>1=aktiviert;Erscheint eine Meldung dass in der CheckBox/Radiobox ausgewählt wurde.;
+;windowsHelpExe=.\SumatraPDF.exe;;Hilfeaufruf;
+;windowsHelpPathName=.\Hilfe\GriPS-Hilfe_DE.chm;;Pfad und Aufruf zur GRIPS-Hilfe;
+;windowsHelpPathName=.\Hilfe\GriPS-Hilfe_DE.chm -restrict;;Hilfeaufruf;
+;wundBilder=1;;"Wundbilder_Import über WebService mit Ilogs aktivieren // Sorgt dafür, dass in der Wunddokumentation bei ""Bild einlesen"" sich ein neues Dialogfenster öffnet. Mit diesem werden direkt Bilder geladen, die über den MOCCA-Webservice in die GriPS-Datenbank importiert werden. In aller Regel handelt es sich um Wundbilder, die am Smartphone aufgenommen wurden.";ILOGS
+;wundBilder=2;;Wundbild kann wahlweise aus Fileverzeichnis oder aus Datenbank geladen werden (siehe Wundbilder_Import über WebService mit Ilogs) ;
+;wundBilderCameraFunction;0=deaktiviert<br>1=aktiviert;Mit Tablet-Kamera kann ein Wundbild fotografiert werden.;
+;??;;DB: Tabelle: GR_EING_BEARB<br>FUNK_ID=FUNK_ID aus PERS_FUNKTIONS für die diese Einschränkung gelten soll<br>CONTEXT=10<br>CONTEXT_MAS: Hier werden mit CONTEXT=10 die Interventions-IDs eingetragen, die bearbeitbar sein sollen;
