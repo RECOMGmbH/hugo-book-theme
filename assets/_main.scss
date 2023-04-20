@@ -112,6 +112,7 @@ ul.pagination {
     width: $menu-width;
     padding: $padding-16;
     background: var(--nav-background);
+    color: black;
 
     @include fixed;
   }
