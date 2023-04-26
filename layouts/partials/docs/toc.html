@@ -1,4 +1,7 @@
+<!-- TableOfContent am rechten oberen Rand / Seiteninhaltsverzeichnis -->
+{{ if ne .Params.toc false }}
 Inhalt:
+{{ end }}
 {{ partial "docs/inject/toc-before" . }}
 {{ .TableOfContents }}
 {{ partial "docs/inject/toc-after" . }}
