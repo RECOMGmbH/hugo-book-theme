@@ -1,4 +1,4 @@
-<!-- Block oben rechts mit den Optionen -->
+<!-- Block oben, incl rechts mit den Optionen -->
   <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-end;">
     <p>
     </p>
@@ -20,7 +20,11 @@
   </div>
   
   {{if .Params.categories}}  
-  <h4>
+  <h3  style="margin:0; padding:0;">
     <a href="{{.Site.BaseURL}}/categories/{{.Params.categories | urlize}}">{{.Params.categories}}</a>
-  </h4>
+  </h3>
   {{end}}
+  {{ partial "docs/reading-time" . }}
+  <p>
+  </p>
+  <hr>
