@@ -1,5 +1,6 @@
 <!-- Block oben, incl rechts mit den Optionen -->
-  <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-end;">
+{{ if ne .Params.editmenu false }}
+<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-end;">
     <p>
     </p>
     <p>
@@ -24,7 +25,10 @@
     <a href="{{.Site.BaseURL}}/categories/{{.Params.categories | urlize}}">{{.Params.categories}}</a>
   </h3>
   {{end}}
+  {{ if ne .Params.readingtime false }}
   {{ partial "docs/reading-time" . }}
+  {{end}}
   <p>
   </p>
   <hr>
+  {{end}}
