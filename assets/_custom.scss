@@ -8,5 +8,15 @@ $menu-width: 20rem;
 /* Breite des Inhaltsverzeichnisses rechts. */
 $toc-width: 20rem;
 
+/* Style Partial Brand Teilüberschrift */
+.borderbrand {
+    background-color: #013476;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 3px;
+  }
+
 @import "plugins/dropdown";
 @import "plugins/pageinfo"
