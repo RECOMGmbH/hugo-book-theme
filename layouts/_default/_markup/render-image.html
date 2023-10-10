@@ -1,7 +1,14 @@
 {{- if .Page.Site.Params.BookPortableLinks -}}
   {{- template "portable-image" . -}}
 {{- else -}}
-  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }}title="{{ . }}"{{ end }}/>
+  
+
+ <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }}title="{{ . }}"{{ end }}/>
+    {{- if .Text -}}
+    <br>
+      {{ .Page.Scratch.Add "co_image" 1 }}
+    <i style="font-size: 13px;">Bild {{.Page.Scratch.Get "co_image"}}: {{ .Text }}</i>
+    {{- end -}}
 {{- end -}}
 
 {{- define "portable-image" -}}

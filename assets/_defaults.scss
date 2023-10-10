@@ -23,9 +23,11 @@ $toc-width: 16rem !default;
 $mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
 
 $hint-colors: (
+  note: rgb(55, 58, 58),
   info: #6bf,
-  warning: #fd6,
-  danger: #f66,
+  warning: #E78700,
+  danger: #B61F29,
+  old: #941622,
 ) !default;
 
 // Themes
@@ -34,17 +36,24 @@ $hint-colors: (
   --gray-200: #e9ecef;
   --gray-500: #adb5bd;
 
-  --color-link: #0055bb;
-  --color-visited-link: #8440f1;
+  --color-link: #014EB1;
+  --color-visited-link: #013476;
 
-  --body-background: white;
+  --body-background: rgb(247, 247, 247);
   --body-font-color: black;
+  --nav-background: white;
+  --code-background: rgb(202, 202, 202);
+  --toc-color: #013476;
+  --toc-color-hover: #013476 ;
+  --toc-background: #A3D8F8;
+  --image-border: #A3D8F8;
 
   --icon-filter: none;
 
   --hint-color-info: #6bf;
-  --hint-color-warning: #fd6;
-  --hint-color-danger: #f66;
+  --hint-color-warning: #E78700;
+  --hint-color-danger: #B61F29;
+  --hint-color-old: #941622;
 }
 
 @mixin theme-dark {
@@ -52,15 +61,22 @@ $hint-colors: (
   --gray-200: rgba(255, 255, 255, 0.2);
   --gray-500: rgba(255, 255, 255, 0.5);
 
-  --color-link: #84b2ff;
-  --color-visited-link: #b88dff;
+  --color-link: #64BEF1 ;
+  --color-visited-link: #A3D8F8;
 
   --body-background: #343a40;
   --body-font-color: #e9ecef;
+  --nav-background: white;
+  --code-background: rgba(255, 255, 255, 0.2);
+  --toc-color: #64BEF1;
+  --toc-color-hover: white;
+  --toc-background: none;
+  --image-border: #013476;
 
   --icon-filter: brightness(0) invert(1);
 
   --hint-color-info: #6bf;
-  --hint-color-warning: #fd6;
-  --hint-color-danger: #f66;
+  --hint-color-warning: #E78700;
+  --hint-color-danger: #B61F29;
+  --hint-color-old: #941622;
 }

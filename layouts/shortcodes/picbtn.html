@@ -1,0 +1,25 @@
+{{ $titleOn := "" }}
+{{ $titleOff := "" }}
+<button id="shownone">{{.Get "titleOn" }}
+    <script>
+        var shownone = false;
+        document.querySelector("#shownone").onclick = function () {
+        if (shownone === false ) {
+        document.querySelectorAll(".shownone")[0].style="display:block";
+        shownone = true;
+         this.innerHTML = {{ .Get "titleOff" }} ;
+        } 
+        else 
+        { document.querySelectorAll(".shownone")[0].style="display:none";
+        shownone = false;
+        this.innerHTML = {{ .Get "titleOn" }} } 
+    }
+        </script>    
+</button>
+<p></p>
+    <div class="shownone markdown-inner" style="display:none">
+        {{ $imgMarkdown := printf "![%s](%s)" (.Get "caption") (.Get "url") }}
+        {{ $imgMarkdown | .Page.RenderString }}
+    </div>    
+
+

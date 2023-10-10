@@ -1,0 +1,34 @@
+<!-- Block oben, incl rechts mit den Optionen -->
+{{ if ne .Params.editmenu false }}
+<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-end;">
+    <p>
+    </p>
+    <p>
+      {{ with .Params.Git.LastCommitter }}
+      <small title="{{ .Name }} <{{ .Email }}>"><i class="fas fa-user"></i> {{ .Name }}</small><br>
+      {{ end }}
+      {{ with .Params.Git.LastCommitTime }}
+      <small><i class="far fa-clock"></i> {{ . }}</small><br>
+      {{ end }}
+      {{ with .Params.Git.EditLink }}
+      <small><i class="fab fa-github"></i> <a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ i18n "To Edit" }}</a></small><br>
+      {{ end }}
+      {{ $title := .Title }}
+      {{ with .Params.ReportBugs }}
+      <small><i class="fa-solid fa-bug"></i> <a href="{{ . }}?issue[subject]={{ $title }}" target="_blank" rel="noopener noreferrer">{{ i18n "Report Bug" }}</a></small><br>
+      {{ end }}
+    </p>
+  </div>
+  
+  {{if .Params.categories}}  
+  <h3  style="margin:0; padding:0;">
+    <a href="{{.Site.BaseURL}}/categories/{{.Params.categories | urlize}}">{{.Params.categories}}</a>
+  </h3>
+  {{end}}
+  {{ if ne .Params.readingtime false }}
+  {{ partial "docs/reading-time" . }}
+  {{end}}
+  <p>
+  </p>
+  <hr>
+  {{end}}

@@ -1,0 +1,8 @@
+<!-- Zeile unter dem Content mit letztem Aktualisierungsdatum -->
+    <p>
+      <br>
+      <br>
+      {{ with .Params.Compiled }}
+      <small title="Last Document Refresh"><i class="fas fa-cogs"></i> {{ . }}</small>
+      {{ end }}
+    </p>

@@ -15,6 +15,7 @@
   h5,
   h6 {
     font-weight: normal;
+    // color: rgb(50, 153, 238);
     line-height: 1;
     margin-top: 1.5em;
     margin-bottom: $padding-16;
@@ -35,7 +36,8 @@
   h4,
   h5,
   h6 {
-    font-weight: bolder;
+    // geändert von bolder zu normal
+    font-weight: normal;
   }
 
   h5 {
@@ -70,7 +72,7 @@
 
   code {
     padding: 0 $padding-4;
-    background: var(--gray-200);
+    background: var(--code-background);
     border-radius: $border-radius;
     font-size: 0.875em;
   }
@@ -158,6 +160,17 @@
     td:nth-child(2) pre {
       margin: 0;
       padding-inline-start: 0;
+    }
+  }
+
+  // custom added
+  .highlight {
+    position: relative;
+    button {
+      position: absolute;
+      right: $padding-8;
+      top: $padding-8;
+      color: #888;
     }
   }
 
