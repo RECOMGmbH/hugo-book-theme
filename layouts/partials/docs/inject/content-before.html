@@ -21,10 +21,11 @@
   </div>
   
   {{if .Params.categories}}  
-  <h3  style="margin:0; padding:0;">
-    <a href="{{.Site.BaseURL}}/categories/{{.Params.categories | urlize}}">{{.Params.categories}}</a>
-  </h3>
+    {{ range (.GetTerms "categories") }}
+    <span class="category"><a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a></span>
+    {{ end }}
   {{end}}
+  <p><br></p>
   {{ if ne .Params.readingtime false }}
   {{ partial "docs/reading-time" . }}
   {{end}}
