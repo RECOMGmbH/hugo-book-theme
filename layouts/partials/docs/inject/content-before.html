@@ -22,7 +22,7 @@
   
   {{if .Params.categories}}  
     {{ range (.GetTerms "categories") }}
-    <span class="category"><a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a></span>
+    <span class="category"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></span>
     {{ end }}
   {{end}}
   <p><br></p>
