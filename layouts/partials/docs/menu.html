@@ -3,7 +3,7 @@
 {{ partial "docs/brand" . }}
 {{ partial "docs/navbar-version-selector" . }}
 {{ partial "docs/search" . }}
-{{ if hugo.IsMultilingual }}
+{{ if .Site.IsMultiLingual }}
   {{ partial "docs/languages" . }}
 {{ end }}
 

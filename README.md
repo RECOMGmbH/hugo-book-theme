@@ -1,12 +1,12 @@
 # Hugo Book Theme
 
-[![Hugo](https://img.shields.io/badge/hugo-0.124-blue.svg)](https://gohugo.io)
+[![Hugo](https://img.shields.io/badge/hugo-0.79-blue.svg)](https://gohugo.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Build with Hugo](https://github.com/alex-shpak/hugo-book/workflows/Build%20with%20Hugo/badge.svg)
 
 ### [Hugo](https://gohugo.io) documentation theme as simple as plain book
 
-![Screenshot](https://raw.githubusercontent.com/alex-shpak/hugo-book/master/images/screenshot.png)
+![Screenshot](https://github.com/alex-shpak/hugo-book/blob/master/images/screenshot.png)
 
 - [Features](#features)
 - [Requirements](#requirements)
@@ -33,8 +33,8 @@
 
 ## Requirements
 
-- Hugo 0.124 or higher
-- Hugo extended version, [Installation Instructions](https://gohugo.io/installation/)
+- Hugo 0.79 or higher
+- Hugo extended version, read more [here](https://gohugo.io/news/0.48-relnotes/)
 
 ## Installation
 
@@ -60,7 +60,7 @@ Start with initializing hugo modules, if not done yet:
 hugo mod init github.com/repo/path
 ```
 
-Navigate to your hugo project root and add [module] section to your `hugo.toml`:
+Navigate to your hugo project root and add [module] section to your `config.toml`:
 
 ```toml
 [module]
@@ -140,7 +140,7 @@ A blog is not the primary usecase of this theme, so it has only minimal features
 
 ### Site Configuration
 
-There are a few configuration options that you can add to your `hugo.toml` file.  
+There are a few configuration options that you can add to your `config.toml` file.  
 You can also see the `yaml` example [here](https://github.com/alex-shpak/hugo-book/blob/master/exampleSite/config.yaml).
 
 ```toml
