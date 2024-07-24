@@ -8,15 +8,8 @@
 {{ end }}
 
 {{ partial "docs/inject/menu-before" . }}
-{{ partial "docs/menu-hugo" .Site.Menus.before }}
+{{ partial "docs/menu-hugo" .Site.Menus.main }}
 
-{{ if .Site.Params.BookMenuBundle }}
-  {{ partial "docs/menu-bundle" . }}
-{{ else }}
-  {{ partial "docs/menu-filetree" . }}
-{{ end }}
-
-{{ partial "docs/menu-hugo" .Site.Menus.after }}
 {{ partial "docs/inject/menu-after" . }}
 
 
