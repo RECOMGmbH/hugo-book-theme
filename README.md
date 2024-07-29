@@ -6,7 +6,7 @@
 
 ### [Hugo](https://gohugo.io) documentation theme as simple as plain book
 
-![Screenshot](https://github.com/alex-shpak/hugo-book/blob/master/images/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/alex-shpak/hugo-book/master/images/screenshot.png)
 
 - [Features](#features)
 - [Requirements](#requirements)
@@ -34,7 +34,7 @@
 ## Requirements
 
 - Hugo 0.79 or higher
-- Hugo extended version, read more [here](https://gohugo.io/news/0.48-relnotes/)
+- Hugo extended version, [Installation Instructions](https://gohugo.io/installation/)
 
 ## Installation
 
