@@ -11,7 +11,7 @@ KaTeX shortcode let you render math typesetting in markdown document. See [KaTeX
   <div class="flex-even markdown-inner">
 
 ```latex
-{{</* katex display=true class="optional" >}}
+{{</* katex display=true >}}
 f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
 {{< /katex */>}}
 ```
@@ -19,7 +19,7 @@ f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
   </div>
   <div class="flex-even markdown-inner">
 
-{{< katex display=true class="optional" >}}
+{{< katex display=true >}}
 f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
 {{< /katex >}}
 
