@@ -5,6 +5,26 @@
 
 {{ with .Site.GetPage $bookSection }}
   {{ template "book-section-children" (dict "Section" . "CurrentPage" $) }}
+  {{ template "menu-uncategorized" .Site.AllPages }}
+{{ end }}
+
+{{ define "menu-uncategorized" }}{{/* (.Site.RegularPages) */}}
+  <ul>
+    <li>
+      <input type="checkbox" class="toggle" id="section-uncategorized"/>
+      <label for="section-uncategorized" class="flex justify-between">
+        <a role="button">[Ohne Kategorie]</a>
+      </label>
+      <ul>
+        {{ range $page := . }}
+          {{ $cats := $page.Params.categories }}
+          {{ if (or (not $cats) (and $cats (eq (len $cats) 0))) }}
+            <li>{{ template "book-page-link" (dict "Page" . "CurrentPage" $) }}</li>
+          {{ end }}
+        {{ end}}
+      </ul>
+    </li>
+  </ul>
 {{ end }}
 
 {{ define "book-section-children" }}{{/* (dict "Section" .Section "CurrentPage" .CurrentPage) */}}
