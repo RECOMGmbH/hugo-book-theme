@@ -5,4 +5,7 @@
       {{ with .Params.Compiled }}
       <small title="Last Document Refresh"><i class="fas fa-cogs"></i> {{ . }}</small>
       {{ end }}
+      {{ with .File }}
+        <br><small><i class="fas fa-file"></i> Pfad: {{ .Path }}</small>
+      {{ end }}
     </p>
