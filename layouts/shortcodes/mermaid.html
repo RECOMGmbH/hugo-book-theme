@@ -2,24 +2,11 @@
 <!-- Include mermaid only first time -->
 <script src="{{ "mermaid.min.js" | relURL }}"></script>
 {{ with resources.Get "mermaid.json" }}
-  <script>
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      mermaid.initialize({theme: 'dark'})
-    } else {
-      mermaid.initialize({theme: 'forest'})
-    }
-  </script>
+  <script>mermaid.initialize({{ .Content | safeJS }})</script>
 {{ end }}
 {{ .Page.Scratch.Set "mermaid" true }}
 {{ end }}
 
-
-<p>
-<div class="mermaid{{ with .Get "class" }} {{ . }}{{ end }}"  >
-  {{- .Inner -}}
-</div>
-{{ if ( .Get "caption" ) }}
-  {{ .Page.Scratch.Add "co_diagram" 1 }}
-  <i style="font-size: 13px">Diagramm {{.Page.Scratch.Get "co_diagram"}}: {{ .Get "caption" }}</i>
-{{ end }}
-</p>
+<pre class="mermaid{{ with .Get "class" }} {{ . }}{{ end }}">
+  {{- .Inner | safeHTML -}}
+</pre>
