@@ -1,0 +1,13 @@
+<p>
+  Anzahl unkategorisierter Seiten:
+  <b>{{ partial "count-pages-uncategorized" .Site.RegularPages }}</b>
+</p>
+
+<ul>
+  {{ range $page := (sort .Site.RegularPages "File.Path") }}
+    {{ $cats := $page.Params.categories }}
+    {{ if (or (not $cats) (and $cats (eq (len $cats) 0))) }}
+      <li>{{ template "housekeeping-file-link" $page }}</li>
+    {{ end }}
+  {{ end}}
+</ul>

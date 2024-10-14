@@ -1,0 +1,29 @@
+<!-- params: Page -->
+{{ define "housekeeping-file-link" }}
+  <a href="{{ .Permalink }}">{{ .Title }}</a>
+  <span style="font-family: monospace">({{ .File.Path }})</span>
+{{ end }}
+
+<!-- params: Page[] -->
+{{ define "partials/count-pages-uncategorized" }}
+  {{ $count := 0 }}
+  {{ range $page := . }}
+    {{ $cats := $page.Params.categories }}
+    {{ if (or (not $cats) (and $cats (eq (len $cats) 0))) }}
+      {{ $count = add $count 1}}
+    {{ end }}
+  {{ end }}
+  {{ return $count }}
+{{ end }}
+
+<!-- params: Page[] -->
+{{ define "partials/count-pages-unsorted-in-menu" }}
+  {{ $count := 0 }}
+  {{ range $page := . }}
+    {{ $menu := $page.Params.menus }}
+    {{ if (or (not $menu) (and $menu (eq (len $menu) 0))) }}
+      {{ $count = add $count 1}}
+    {{ end }}
+  {{ end }}
+  {{ return $count }}
+{{ end }}
