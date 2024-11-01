@@ -40,7 +40,7 @@
 
   {{- .Pre -}}
   {{ with $menu.Page }}
-    {{ if $menu.Page.IsSection }}
+    {{ if .Page.Params.CollapseSection }}
       <input type="checkbox" id="section-{{ md5 $menu.Page }}"
              class="toggle" {{ if or $current $ancestor }}checked{{ end }}/>
       <label for="section-{{ md5 $menu.Page }}" class="flex justify-between">
@@ -58,7 +58,7 @@
 
 <!-- params: (dict "MenuEntry" MenuEntry "current" boolean) -->
 {{ define "recom-menu-link" }}
-  <a
+  <a  
     {{ if .MenuEntry.Page.Content }}
       href="{{ .MenuEntry.Page.RelPermalink }}"
     {{ else }}
@@ -66,6 +66,9 @@
     {{ end }}
     class="{{ if .current }}active{{ end }}"
   >
+    {{ with .MenuEntry.Page.Params.icon }}
+     <i class="{{ .}}" style='color:#013476'></i>
+    {{ end }} 
     {{ .MenuEntry.Page.LinkTitle }}
   </a>
 {{ end }}
