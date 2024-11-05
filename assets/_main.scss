@@ -8,6 +8,8 @@ body {
   min-width: $body-min-width;
   color: var(--body-font-color);
   background: var(--body-background);
+
+  // letter-spacing: 0.33px;
   font-weight: $body-font-weight;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -93,16 +95,21 @@ ul.pagination {
   filter: var(--icon-filter);
 }
 
+a .book-icon {
+  height: 1em;
+  width: 1em;
+  margin-inline-end: .5em;
+}
+
 .book-brand {
   margin-top: 0;
   margin-bottom: $padding-16;
-  font-size: 24px;
-  
+
   img {
     height: 1.5em;
     width: 1.5em;
     margin-inline-end: $padding-8;
-   }
+  }
 }
 
 .book-menu {
@@ -113,6 +120,7 @@ ul.pagination {
     width: $menu-width;
     padding: $padding-16;
     background: var(--nav-background);
+    color: black;
 
     @include fixed;
   }
@@ -183,7 +191,17 @@ body[dir="rtl"] .book-menu {
 }
 
 .book-post {
-  margin-bottom: $padding-16 * 3;
+  margin-bottom: $padding-16 * 2;
+
+  .book-post-date img {
+    height: 1em;
+    width: 1em;
+    margin-inline-end: .5em;
+  }
+
+  .book-post-content > :first-child {
+    margin-top: $padding-16;
+  }
 }
 
 .book-header {
@@ -192,6 +210,12 @@ body[dir="rtl"] .book-menu {
 
   label {
     line-height: 0;
+  }
+
+  h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 $padding-16;
   }
 
   img.book-icon {
@@ -287,12 +311,6 @@ body[dir="rtl"] .book-menu {
 .book-languages {
   margin-block-end: $padding-16 * 2;
 
-  .book-icon {
-    height: 1em;
-    width: 1em;
-    margin-inline-end: .5em;
-  }
-
   ul {
     padding-inline-start: 1.5em;
   }
@@ -318,7 +336,6 @@ body[dir="rtl"] .book-menu {
   .book-menu {
     visibility: hidden;
     margin-inline-start: -$menu-width;
-    font-size: $font-size-base;
     z-index: 1;
   }
 
