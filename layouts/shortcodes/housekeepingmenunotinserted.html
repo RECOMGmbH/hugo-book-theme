@@ -1,0 +1,13 @@
+<p>
+  Anzahl nicht im Menü aufgeführter Seiten:
+  <b>{{ partial "count-pages-unsorted-in-menu" .Site.RegularPages }}</b>
+</p>
+
+<ul>
+  {{ range $page := (sort .Site.RegularPages "File.Path") }}
+    {{ $menu := $page.Params.menus }}
+    {{ if (or (not $menu) (and $menu (eq (len $menu) 0))) }}
+      <li>{{ template "housekeeping-file-link" $page }}</li>
+    {{ end }}
+  {{ end}}
+</ul>
