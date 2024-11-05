@@ -1,4 +1,4 @@
-<!-- Auf der Publicseite wird dieser Inhalt nicht dargestellt. Im Vergelich zu "confidential" erfolgt in der Doc´s Darstellung keine farbliche markierung o.ä.! -->
+<!-- Auf der Publicseite wird dieser Inhalt nicht dargestellt. Im Vergleich zu "confidential" erfolgt in der Doc´s Darstellung keine farbliche markierung o.ä.! -->
 {{ if eq .Site.Params.WithInternals true }}
-{{ .Inner | markdownify }}
+{{ .InnerDeindent | markdownify }}
 {{ end }}
