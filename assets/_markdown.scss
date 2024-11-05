@@ -71,6 +71,8 @@
   }
 
   code {
+    direction: ltr;
+    unicode-bidi: embed;
     padding: 0 $padding-4;
     background: var(--code-background);
     border-radius: $border-radius;
@@ -78,6 +80,8 @@
   }
 
   pre {
+    direction: ltr;
+    unicode-bidi: embed;
     padding: $padding-16;
     background: var(--gray-100);
     border-radius: $border-radius;
@@ -152,14 +156,25 @@
   }
 
   // Special case for highlighted code with line numbers
-  .highlight table tr {
-    td:nth-child(1) pre {
-      margin: 0;
-      padding-inline-end: 0;
-    }
-    td:nth-child(2) pre {
-      margin: 0;
-      padding-inline-start: 0;
+  .highlight {
+    direction: ltr;
+    unicode-bidi: embed;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    table tr {
+      td pre code > span {
+        display: flex;
+      }
+      
+      td:nth-child(1) pre {
+        margin: 0;
+        padding-inline-end: 0;
+      }
+      td:nth-child(2) pre {
+        margin: 0;
+        padding-inline-start: 0;
+      }
     }
   }
 

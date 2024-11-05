@@ -1,0 +1,31 @@
+<!-- Aufbau des Menüs links -->
+<nav>
+{{ partial "docs/brand" . }}
+{{ partial "docs/navbar-version-selector" . }}
+{{ partial "docs/search" . }}
+{{ if hugo.IsMultilingual }}
+  {{ partial "docs/languages" . }}
+{{ end }}
+
+{{ partial "docs/inject/menu-before" . }}
+
+<<<<<<< HEAD
+{{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.before "CurrentPage" $) }}
+{{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.main "CurrentPage" $) }}
+{{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.after "CurrentPage" $) }}
+=======
+{{ partial "docs/menu-filetree" . }}
+>>>>>>> origin/pick-from-master
+
+{{ partial "docs/inject/menu-after" . }}
+
+{{ partial "docs/menu-footer" .Site.Menus.after }}
+
+{{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.maintenance "CurrentPage" $) }}
+</nav>
+
+<!-- Restore menu position as soon as possible to avoid flickering -->
+{{ $script := resources.Get "menu-reset.js" | resources.Minify }}
+{{ with $script.Content }}
+  <script>{{ . | safeJS }}</script>
+{{ end }}
