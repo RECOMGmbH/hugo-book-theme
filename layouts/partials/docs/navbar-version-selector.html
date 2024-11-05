@@ -1,10 +1,10 @@
 <center><div class="dropdown">
-  <button class="dropbtn"><span>{{ i18n "Version" }}: {{ .Site.Title }}
+  <button class="dropbtn"><span>Version: {{ .Site.Title }}
           <svg fill="#FFFFFF" width="20px" height="10px" viewBox="0 5 15 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <title>dropdown</title>
             <path d="M18.813 11.406l-7.906 9.906c-0.75 0.906-1.906 0.906-2.625 0l-7.906-9.906c-0.75-0.938-0.375-1.656 0.781-1.656h16.875c1.188 0 1.531 0.719 0.781 1.656z"></path>
             </svg>
-        </span></button>
+          </span></button>
         <div class="dropdown-content">
         {{ range .Site.Params.versions }}
           <a href="{{ .url }}">{{ .version }}</a>

@@ -1,28 +1,75 @@
 <!--
   This is template for hugo menus, accepts MenuEntity as context
   https://gohugo.io/variables/menus/
+
+  params: (dict "MenuEntry" MenuEntry "CurrentPage" Page)
 -->
-{{ if . }}
+{{ if .MenuEntry }}
   {{ template "book-menu-hugo" . }}
 {{ end }}
 
+<!-- params: (dict "MenuEntry" MenuEntry "CurrentPage" Page) -->
 {{ define "book-menu-hugo" }}
-<ul>
-  {{ range . }}
-  <li>
-    <a href="{{ .URL }}" {{ with .Params.class }}class="{{ . }}"{{ end }} {{ if not .Page }}target="_blank" rel="noopener"{{ end }}>
-      {{- .Pre -}}
-      {{ with .Page }}
-        {{ partial "docs/title" .Page }}
-      {{ else }}
-        {{ .Name }}
-      {{ end }}
-      {{- .Post -}}
-    </a>
-    {{- with .Children }}
-      {{ template "book-menu-hugo" . }}
-    {{- end }}
-  </li>
-  {{ end }}
-</ul>
+  {{ $CurrentPage := .CurrentPage }}
+  <ul>
+    {{ range .MenuEntry }}
+      <li>
+        {{ template "recom-menu-entry-single"
+           (dict "MenuEntry" . "CurrentPage" $CurrentPage) }}
+        {{- with .Children }}
+          {{ template "book-menu-hugo"
+             (dict "MenuEntry" . "CurrentPage" $CurrentPage) }}
+        {{- end }}
+      </li>
+    {{ end }}
+  </ul>
 {{ end }}
+
+<!-- params: (dict "MenuEntry" MenuEntry "CurrentPage" Page) -->
+{{ define "recom-menu-entry-single" }}
+  {{ $menu := .MenuEntry }}
+  {{ if not $menu.Page }}
+    {{ warnf "The menu entry %s was not associated with a page" $menu.Name }}
+    {{ warnf "Please confirm that there is a markdown file defining this menu entry." }}
+    {{ errorf "Compilation Failed due to incoherent menu structure" }}
+  {{ end }}
+  {{ $current := eq $menu.Page.Path .CurrentPage.Path }}
+  {{ $ancestor := $menu.Page.IsAncestor .CurrentPage }}
+
+  {{/* dict "current" $current "ancestor" $ancestor | jsonify */}}
+
+  {{- .Pre -}}
+  {{ with $menu.Page }}
+    {{ if .Page.Params.CollapseSection }}
+      <input type="checkbox" id="section-{{ md5 $menu.Page }}"
+             class="toggle" {{ if or $current $ancestor }}checked{{ end }}/>
+      <label for="section-{{ md5 $menu.Page }}" class="flex justify-between">
+        {{ template "recom-menu-link" (dict "MenuEntry" $menu "current" $current) }}
+      </label>
+    {{ else }}
+      {{ template "recom-menu-link" (dict "MenuEntry" $menu "current" $current) }}
+    {{ end }}
+  {{ else }}
+    {{ $menu.Name }}
+  {{ end }}
+  {{- .Post -}}
+  
+{{ end }}
+
+<!-- params: (dict "MenuEntry" MenuEntry "current" boolean) -->
+{{ define "recom-menu-link" }}
+  <a  
+    {{ if .MenuEntry.Page.Content }}
+      href="{{ .MenuEntry.Page.RelPermalink }}"
+    {{ else }}
+      role="button"
+    {{ end }}
+    class="{{ if .current }}active{{ end }}"
+  >
+    {{ with .MenuEntry.Page.Params.icon }}
+     <i class="{{ .}}" style='color:#013476'></i>
+    {{ end }} 
+    {{ .MenuEntry.Page.LinkTitle }}
+  </a>
+{{ end }}
+

@@ -9,9 +9,13 @@
 
 {{ partial "docs/inject/menu-before" . }}
 
+<<<<<<< HEAD
 {{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.before "CurrentPage" $) }}
 {{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.main "CurrentPage" $) }}
 {{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.after "CurrentPage" $) }}
+=======
+{{ partial "docs/menu-filetree" . }}
+>>>>>>> origin/pick-from-master
 
 {{ partial "docs/inject/menu-after" . }}
 

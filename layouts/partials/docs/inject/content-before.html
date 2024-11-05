@@ -4,9 +4,6 @@
     <p>
     </p>
     <p>
-      {{ with .Params.Git.LastCommitter }}
-      <small title="{{ .Name }} <{{ .Email }}>"><i class="fas fa-user"></i> {{ .Name }}</small><br>
-      {{ end }}
       {{ with .Params.Git.LastCommitTime }}
       <small><i class="far fa-clock"></i> {{ . }}</small><br>
       {{ end }}
