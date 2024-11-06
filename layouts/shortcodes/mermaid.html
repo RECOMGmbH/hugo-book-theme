@@ -13,13 +13,6 @@
 {{ .Page.Scratch.Set "mermaid" true }}
 {{ end }}
 
-
-<p>
-<div class="mermaid{{ with .Get "class" }} {{ . }}{{ end }}"  >
-  {{- .Inner -}}
-</div>
-{{ if ( .Get "caption" ) }}
-  {{ .Page.Scratch.Add "co_diagram" 1 }}
-  <i style="font-size: 13px">Diagramm {{.Page.Scratch.Get "co_diagram"}}: {{ .Get "caption" }}</i>
-{{ end }}
-</p>
+<pre class="mermaid{{ with .Get "class" }} {{ . }}{{ end }}">
+  {{- .Inner | safeHTML -}}
+</pre>
