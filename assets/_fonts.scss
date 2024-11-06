@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
@@ -8,7 +8,7 @@
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
@@ -17,7 +17,7 @@
 }
 
 @font-face {
-  font-family: 'Roboto Mono';
+  font-family: Consolas, 'Courier New', Courier, monospace;
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
@@ -26,9 +26,10 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 code {
-  font-family: 'Roboto Mono', monospace;
+  font-family: Consolas, 'Courier New', Courier, monospace;
+  font-weight: bold
 }
