@@ -36,6 +36,9 @@ a {
 
 img {
   vertical-align: baseline;
+  color: var(--image-border);
+  border: 1px;
+  border-style: solid;
 }
 
 :focus {
@@ -44,7 +47,7 @@ img {
 
 aside nav ul {
   padding: 0;
-  margin: 0;
+  margin: 5;
   list-style: none;
 
   li {
@@ -52,12 +55,19 @@ aside nav ul {
     position: relative;
   }
 
+ 
+
   a {
     display: block;
   }
-
+  
   a:hover {
-    opacity: 0.5;
+    flex: 1;
+    opacity: 1;
+    font-weight: bold;
+    color: #013476;
+    border-radius: 0px;
+    padding: 0px 0px;
   }
 
   ul {
@@ -109,20 +119,27 @@ a .book-icon {
   .book-menu-content {
     width: $menu-width;
     padding: $padding-16;
-    background: var(--body-background);
+    background: var(--nav-background);
+    color: black;
 
     @include fixed;
   }
 
   a,
   label {
-    color: inherit;
+    color: black;
     cursor: pointer;
     word-wrap: break-word;
+ 
   }
-
+  
   a.active {
-    color: var(--color-link);
+    flex: 1;
+    font-weight: bold;
+    color: #013476;
+    background-color: #A3D8F8;
+    border-radius: 3px;
+    padding: 5px 10px;
   }
 
   input.toggle + label + ul {
@@ -211,16 +228,15 @@ body[dir="rtl"] .book-menu {
   position: relative;
   margin: $padding-16 0;
   border-bottom: 1px solid transparent;
-
+    
   input {
     width: 100%;
     padding: $padding-8;
 
     border: 0;
     border-radius: $border-radius;
-
-    background: var(--gray-100);
-    color: var(--body-font-color);
+    background: rgb(190, 190, 190);
+    color: rgb(75, 74, 74);
 
     &:required + .book-search-spinner {
       display: block;
@@ -237,7 +253,6 @@ body[dir="rtl"] .book-menu {
     height: $padding-16;
 
     border: $padding-1 solid transparent;
-    border-top-color: var(--body-font-color);
     border-radius: 50%;
 
     @include spin(1s);
@@ -245,6 +260,15 @@ body[dir="rtl"] .book-menu {
 
   small {
     opacity: 0.5;
+    color: #01132c;
+  }
+
+  /* custom added */
+  li {
+    margin: $padding-8 0;
+    padding: $padding-8;
+    background: #A3D8F8;
+    border-radius: $padding-4;
   }
 }
 
@@ -272,6 +296,12 @@ body[dir="rtl"] .book-menu {
 .book-footer {
   padding-top: $padding-16;
   font-size: $font-size-14;
+
+  img {
+    height: 1em;
+    width: 1em;
+    margin-inline-end: $padding-8;
+    }
 }
 
 .book-comments {
@@ -371,3 +401,26 @@ body[dir="rtl"] .book-menu {
     padding: $padding-16 * 2 $padding-16;
   }
 }
+
+// Layout category button
+.category {
+    display: flex;
+    float: left;
+   
+    a {
+        color: var(--color-link);
+        background-color: var(--category-background);
+        padding: 3px 3px;
+        font-size: 1.3rem;
+        transition: background-color 0.5s ease;
+        border-style: outset;
+        border-color: var(--color-link);
+        border-radius: 8px;
+        margin-left: 8px;
+               
+        &:hover {
+            color: var(--accent-color-text);
+            background-color: var(--accent-color-darker);
+                }
+      }
+    }
