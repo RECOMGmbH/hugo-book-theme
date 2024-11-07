@@ -3,7 +3,7 @@
 {{ range $index, $content := split .InnerDeindent "<--->" }}
   {{- $grow := default 1 (index $ratio $index) -}}
   <div class="flex-even markdown-inner" style="flex-grow: {{ $grow }};">
-    {{ $content | safeHTML }}
+    {{ $content | markdownify }}
   </div>
 {{ end }}
 </div>
