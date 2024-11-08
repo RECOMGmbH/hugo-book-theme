@@ -34,7 +34,7 @@
     {{ errorf "Compilation Failed due to incoherent menu structure" }}
   {{ end }}
   {{ $current := eq $menu.Page.Path .CurrentPage.Path }}
-  {{ $ancestor := $menu.Page.IsAncestor .CurrentPage }}
+  {{ $ancestor := .CurrentPage.HasMenuCurrent $menu.Menu $menu }}
 
   {{/* dict "current" $current "ancestor" $ancestor | jsonify */}}
 
