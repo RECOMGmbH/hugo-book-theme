@@ -25,9 +25,12 @@
 <!--      {{- dict "Src" $image "Height" "0" "Width" "0" "Title" $title -}}-->
 <!--    </a> -->
 <!--  </div> -->
+
+{{ $ref := relref . $link }}
+
 <div>
   <span style="font-size:120%;" class="showcase-title">
-    <a href="{{ $link }}">>> {{ $title }}</a>
+    <a href="{{ $ref }}">>> {{ $title }}</a>
   </span>
   <p class="showcase-summary">
          {{ $summary }}
