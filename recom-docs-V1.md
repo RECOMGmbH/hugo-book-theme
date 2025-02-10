@@ -1,1 +1,0 @@
-Theme wird bis Version 5.24.1 verwendet.

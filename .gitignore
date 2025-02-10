@@ -2,3 +2,7 @@ public/
 exampleSite/public/
 .DS_Store
 .hugo_build.lock
+
+# emacs (yell at dominik)
+.dir-locals.el
+.projectile

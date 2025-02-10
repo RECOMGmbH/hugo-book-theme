@@ -8,15 +8,16 @@
 {{ end }}
 
 {{ partial "docs/inject/menu-before" . }}
-{{ partial "docs/menu-hugo" .Site.Menus.before }}
 
-{{ partial "docs/menu-filetree" . }}
+{{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.before "CurrentPage" $) }}
+{{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.main "CurrentPage" $) }}
+{{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.after "CurrentPage" $) }}
 
-{{ partial "docs/menu-hugo" .Site.Menus.after }}
 {{ partial "docs/inject/menu-after" . }}
 
-
 {{ partial "docs/menu-footer" .Site.Menus.after }}
+
+{{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.maintenance "CurrentPage" $) }}
 </nav>
 
 <!-- Restore menu position as soon as possible to avoid flickering -->
