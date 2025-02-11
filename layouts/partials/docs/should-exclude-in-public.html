@@ -1,0 +1,38 @@
+
+<!-- Params: Page -->
+{{ define "partials/should-exclude-in-public" }}
+  <!-- yes this is necessary for hugo -->
+  <!-- there are no early returns - amazing -->
+  {{ $ret := false }}
+  
+  {{ if eq (getenv "HUGO_BUILD_ENV") "public" }}
+    {{ $cats := (.Params.categories) }}
+    {{ if $cats }}
+      {{ $ret = (or
+        (in $cats "App Entwicklung")
+        (in $cats "Entwickler-Referenz")
+        (in $cats "Leitfaden Intern")
+        (in $cats "Leitfaden Intern - SymmetriX")
+        (in $cats "Tools - Intern")
+        (in $cats "Testing")
+      ) }}
+    {{ end }}
+  {{ end }}
+  
+  {{ return $ret }}
+{{ end }}
+
+<!-- Params: MenuEntry -->
+{{ define "partials/should-exclude-menu-in-public" }}
+  {{ $ret := partial "should-exclude-in-public" .Page }}
+  
+  {{ with .Children }}
+    {{ range . }}
+      {{ if not (partial "should-exclude-menu-in-public" .) }}
+        {{ $ret = false }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  
+  {{ return $ret }}
+{{ end }}

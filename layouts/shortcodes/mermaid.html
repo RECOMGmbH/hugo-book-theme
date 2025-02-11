@@ -1,12 +1,23 @@
 {{ if not (.Page.Scratch.Get "mermaid") }}
 <!-- Include mermaid only first time -->
 <script src="{{ "mermaid.min.js" | relURL }}"></script>
+<script>
+ function openMermaidInNewTab(el) {
+   const wnd = window.open("about:blank", "");
+   wnd.document.write(el.innerHTML);
+   wnd.document.title = "Diagramm - Docs@Recom";
+   // set fixed with to allow zoom despite svg viewbox
+   wnd.document.body.style.width = "1000px";
+ }
+</script>
 {{ with resources.Get "mermaid.json" }}
   <script>mermaid.initialize({{ .Content | safeJS }})</script>
 {{ end }}
 {{ .Page.Scratch.Set "mermaid" true }}
 {{ end }}
 
-<pre class="mermaid{{ with .Get "class" }} {{ . }}{{ end }}">
+<pre class="mermaid{{ with .Get "class" }} {{ . }}{{ end }}"
+     style="background: rgb(247, 247, 247); cursor: zoom-in;"
+     onclick="openMermaidInNewTab(this)">
   {{- .Inner -}}
 </pre>
