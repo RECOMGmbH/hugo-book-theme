@@ -12,6 +12,8 @@
 {{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.before "CurrentPage" $) }}
 {{ if eq (getenv "HUGO_BUILD_ENV") "public" }}
   {{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.public "CurrentPage" $) }}
+{{ else if eq (getenv "HUGO_BUILD_ENV") "legacy" }}
+  {{ partial "docs/menu-filetree" . }}
 {{ else }}
   {{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.main "CurrentPage" $) }}
 {{ end }}
