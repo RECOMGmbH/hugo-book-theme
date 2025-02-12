@@ -28,32 +28,39 @@
 <!-- params: (dict "MenuEntry" MenuEntry "CurrentPage" Page) -->
 {{ define "recom-menu-entry-single" }}
   {{ $menu := .MenuEntry }}
-  {{ if not $menu.Page }}
-    {{ warnf "The menu entry %s was not associated with a page" $menu.Name }}
-    {{ warnf "Please confirm that there is a markdown file defining this menu entry." }}
-    {{ errorf "Compilation Failed due to incoherent menu structure" }}
-  {{ end }}
-  {{ $current := eq $menu.Page.Path .CurrentPage.Path }}
-  {{ $ancestor := $menu.Page.IsAncestor .CurrentPage }}
-
-  {{/* dict "current" $current "ancestor" $ancestor | jsonify */}}
-
-  {{- .Pre -}}
-  {{ with $menu.Page }}
-    {{ if .Page.Params.CollapseSection }}
-      <input type="checkbox" id="section-{{ md5 $menu.Page }}"
-             class="toggle" {{ if or $current $ancestor }}checked{{ end }}/>
-      <label for="section-{{ md5 $menu.Page }}" class="flex justify-between">
-        {{ template "recom-menu-link" (dict "MenuEntry" $menu "current" $current) }}
-      </label>
-    {{ else }}
-      {{ template "recom-menu-link" (dict "MenuEntry" $menu "current" $current) }}
-    {{ end }}
+  {{ $cats := $menu.Page.Params.categories }}
+  {{ if and $menu.Page (partial "should-exclude-menu-in-public" $menu) }}
+    <div style="display: none;">{{ $menu.Name }}</div>
   {{ else }}
-    {{ $menu.Name }}
-  {{ end }}
-  {{- .Post -}}
+
+    {{ if not $menu.Page }}
+      {{ warnf "The menu entry %s was not associated with a page" $menu.Name }}
+      {{ warnf "Please confirm that there is a markdown file defining this menu entry." }}
+      {{ errorf "Compilation Failed due to incoherent menu structure" }}
+    {{ end }}
+    {{ $current := eq $menu.Page.Path .CurrentPage.Path }}
+    {{ $ancestor := .CurrentPage.HasMenuCurrent $menu.Menu $menu }}
+
+    {{/* dict "current" $current "ancestor" $ancestor | jsonify */}}
+
+    {{- .Pre -}}
+    {{ with $menu.Page }}
+      {{ if .Page.Params.CollapseSection }}
+        <input type="checkbox" id="section-{{ md5 $menu.Page }}"
+               class="toggle" {{ if or $current $ancestor }}checked{{ end }}/>
+        <label for="section-{{ md5 $menu.Page }}" class="flex justify-between">
+          {{ template "recom-menu-link" (dict "MenuEntry" $menu "current" $current) }}
+        </label>
+      {{ else }}
+        {{ template "recom-menu-link" (dict "MenuEntry" $menu "current" $current) }}
+      {{ end }}
+    {{ else }}
+      {{ $menu.Name }}
+    {{ end }}
+    {{- .Post -}}
   
+  {{ end }}
+
 {{ end }}
 
 <!-- params: (dict "MenuEntry" MenuEntry "current" boolean) -->
@@ -72,3 +79,4 @@
     {{ .MenuEntry.Page.LinkTitle }}
   </a>
 {{ end }}
+

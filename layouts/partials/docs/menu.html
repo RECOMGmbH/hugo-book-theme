@@ -1,7 +1,7 @@
 <!-- Aufbau des Menüs links -->
 <nav>
 {{ partial "docs/brand" . }}
-
+{{ partial "docs/navbar-version-selector" . }}
 {{ partial "docs/search" . }}
 {{ if hugo.IsMultilingual }}
   {{ partial "docs/languages" . }}
@@ -10,12 +10,22 @@
 {{ partial "docs/inject/menu-before" . }}
 
 {{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.before "CurrentPage" $) }}
-{{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.public "CurrentPage" $) }}
+{{ if eq (getenv "HUGO_BUILD_ENV") "public" }}
+  {{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.public "CurrentPage" $) }}
+{{ else if eq (getenv "HUGO_BUILD_ENV") "legacy" }}
+  {{ partial "docs/menu-filetree" . }}
+{{ else }}
+  {{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.main "CurrentPage" $) }}
+{{ end }}
 {{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.after "CurrentPage" $) }}
 
 {{ partial "docs/inject/menu-after" . }}
 
 {{ partial "docs/menu-footer" .Site.Menus.after }}
+
+{{ if not (eq (getenv "HUGO_BUILD_ENV") "public") }}
+  {{ partial "docs/menu-hugo" (dict "MenuEntry" .Site.Menus.maintenance "CurrentPage" $) }}
+{{ end }}
 </nav>
 
 <!-- Restore menu position as soon as possible to avoid flickering -->

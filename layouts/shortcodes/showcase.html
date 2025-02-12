@@ -25,9 +25,17 @@
 <!--      {{- dict "Src" $image "Height" "0" "Width" "0" "Title" $title -}}-->
 <!--    </a> -->
 <!--  </div> -->
+
+{{ $ref := "" }}
+{{ if (eq (getenv "HUGO_BUILD_ENV") "legacy") }}
+  {{ $ref = $link }}
+{{ else }}
+  {{ $ref = relref . $link }}
+{{ end }}
+
 <div>
   <span style="font-size:120%;" class="showcase-title">
-    <a href="{{ $link }}">>> {{ $title }}</a>
+    <a href="{{ $ref }}">>> {{ $title }}</a>
   </span>
   <p class="showcase-summary">
          {{ $summary }}

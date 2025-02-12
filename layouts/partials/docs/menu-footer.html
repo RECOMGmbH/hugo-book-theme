@@ -1,4 +1,3 @@
-<!-- Links/Content in der Menüleiste unten -->
 <br>
 <hr>
 <br>
@@ -29,15 +28,34 @@
  }
 </style>
 
+<!-- Params: ("Url" string "Name" string) -->
+{{ define "footer-link" }}
+  <li>
+    <img class="menu-footer-thieme-icon"
+         src="https://docs.recom.eu/images/2e3b72a6-c209-4db5-ac9d-50a105030965.jpg">
+    <a href="{{ .Url }}">{{ .Name }}</a>
+  </li>
+{{ end }}
+
 <ul id="menu-footer">
-  <li>
-    <img class="menu-footer-thieme-icon"
-         src="https://docs.recom.eu/images/2e3b72a6-c209-4db5-ac9d-50a105030965.jpg">
-    <a href="{{ absURL "categories" }}">Kategorien & Tags</a>
-  </li>
-  <li>
-    <img class="menu-footer-thieme-icon"
-         src="https://docs.recom.eu/images/2e3b72a6-c209-4db5-ac9d-50a105030965.jpg">
-    <a href="https://www.recom.eu">RECOM</a>
-  </li>
+  {{ template "footer-link" (dict "Url" (absURL "categories") "Name" "Kategorien & Tags")}}
+  {{ template "footer-link" (dict "Url" "https://www.recom.eu" "Name" "RECOM")}}
+  {{ if not (eq (getenv "HUGO_BUILD_ENV") "public")}}
+    {{ template "footer-link" (dict
+      "Url" "https://docs.recom.eu/jenkins" "Name" "Jenkins Jobs"
+    )}}
+    {{ template "footer-link" (dict
+      "Url" "http://dev-support.local.recom.lan/sandcastle/html/ebb440fb-1ccd-4c16-8509-0f035af72cdd.htm" "Name" "Sandcastle"
+    )}}
+    {{ template "footer-link" (dict
+      "Url" "https://devwiki/index.php?title=Hauptseite" "Name" "devwiki"
+    )}}
+  {{ else }}
+    {{ template "footer-link" (dict
+      "Url" "https://help.recom.eu/grips5/de-DE/GriPS-Hilfe_DE.html" "Name" "GRIPS Hilfe"
+    )}}
+  {{ end }}
 </ul>
+<br>
+<hr>
+<br>

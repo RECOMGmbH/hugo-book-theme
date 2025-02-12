@@ -21,7 +21,13 @@
       </header>
 
       {{ partial "docs/inject/content-before" . }}
-      {{ template "main" . }} <!-- Page Content -->
+
+      {{ if partial "should-exclude-in-public" . }}  
+        {{ partial "docs/exclude-in-public" . }}
+      {{ else }}
+        {{ template "main" . }} <!-- Page Content -->
+      {{ end }}
+
       {{ partial "docs/inject/content-after" . }}
 
       <footer class="book-footer">
