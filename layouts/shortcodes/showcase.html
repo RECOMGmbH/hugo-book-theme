@@ -26,7 +26,12 @@
 <!--    </a> -->
 <!--  </div> -->
 
-{{ $ref := relref . $link }}
+{{ $ref := "" }}
+{{ if (eq (getenv "HUGO_BUILD_ENV") "legacy") }}
+  {{ $ref = $link }}
+{{ else }}
+  {{ $ref = relref . $link }}
+{{ end }}
 
 <div>
   <span style="font-size:120%;" class="showcase-title">
