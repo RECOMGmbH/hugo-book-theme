@@ -72,6 +72,21 @@ input.toggle {
   clear: both;
 }
 
+.monospace-raw {
+  background: #002b36 !important;
+  color: #93a1a1;
+  font-weight: 700;
+  font-family: Consolas,courier new,Courier,monospace;
+  white-space: pre;
+  overflow-x: auto;
+  p {
+    margin: 0;
+  }
+  a, a:visited {
+      color: pink;
+  }
+}
+
 @mixin spin($duration) {
   animation: spin $duration ease infinite;
   @keyframes spin {

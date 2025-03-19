@@ -1,0 +1,8 @@
+<!-- credits: https://roneo.org/en/hugo-include-another-file-with-a-shortcode/ -->
+{{ $file := .Get 0 }}
+<pre class="monospace-raw">
+{{ (printf "%s%s" .Page.File.Dir $file) | readFile | replaceRE "---([\\r\\n]|.)+---" "" | replaceRE "```" "" | safeHTML }}
+</pre>
+
+<!-- HACK: Do not remove this underscore (Preprocessor-Shenanigans) -->
+_
