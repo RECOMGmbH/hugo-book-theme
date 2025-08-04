@@ -32,7 +32,7 @@
 {{ define "footer-link" }}
   <li>
     <img class="menu-footer-thieme-icon"
-         src="https://docs.recom.eu/images/2e3b72a6-c209-4db5-ac9d-50a105030965.jpg">
+         src="/images/2e3b72a6-c209-4db5-ac9d-50a105030965.jpg">
     <a href="{{ .Url }}">{{ .Name }}</a>
   </li>
 {{ end }}
@@ -42,7 +42,7 @@
   {{ template "footer-link" (dict "Url" "https://www.recom.eu" "Name" "RECOM")}}
   {{ if not (eq (getenv "HUGO_BUILD_ENV") "public")}}
     {{ template "footer-link" (dict
-      "Url" "https://docs.recom.eu/jenkins" "Name" "Jenkins Jobs"
+      "Url" "https://docsinternal.recom.eu/jenkins" "Name" "Jenkins Jobs"
     )}}
     {{ template "footer-link" (dict
       "Url" "http://dev-support.local.recom.lan/sandcastle/html/ebb440fb-1ccd-4c16-8509-0f035af72cdd.htm" "Name" "Sandcastle"
