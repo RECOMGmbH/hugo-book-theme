@@ -1,4 +1,6 @@
-{{ $number := "" }}
-<a href="https://redmine.recom.eu/issues/{{.Get "number" }}" number="{{.}}" class="book-btn{{ with .Get "class" }} {{ . }}{{ end }}">
-<img style="border: none" src="{{ "svg/ticket.svg" | relURL }}" class="book-icon" alt="Ticket #{{ .Get "number" }}" title="https://redmine.recom.eu/issues/{{ .Get "number" }}"/>
-{{ .Get "number" }}</a>
+{{ if eq .Site.Params.WithInternals true }}
+  {{ $number := "" }}
+  <a href="https://redmine.recom.eu/issues/{{.Get "number" }}" number="{{.}}" class="book-btn{{ with .Get "class" }} {{ . }}{{ end }}">
+  <img style="border: none" src="{{ "svg/ticket.svg" | relURL }}" class="book-icon" alt="Ticket #{{ .Get "number" }}" title="https://redmine.recom.eu/issues/{{ .Get "number" }}"/>
+  {{ .Get "number" }}</a>
+{{ end }}

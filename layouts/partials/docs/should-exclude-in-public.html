@@ -3,19 +3,12 @@
 {{ define "partials/should-exclude-in-public" }}
   <!-- yes this is necessary for hugo -->
   <!-- there are no early returns - amazing -->
-  {{ $ret := false }}
+  {{ $ret := true }}
   
   {{ if eq (getenv "HUGO_BUILD_ENV") "public" }}
     {{ $cats := (.Params.categories) }}
     {{ if $cats }}
-      {{ $ret = (or
-        (in $cats "App Entwicklung")
-        (in $cats "Entwickler-Referenz")
-        (in $cats "Leitfaden Intern")
-        (in $cats "Leitfaden Intern - SymmetriX")
-        (in $cats "Tools - Intern")
-        (in $cats "Testing")
-      ) }}
+      {{ $ret = (not (in $cats "Kundenzugänglich")) }}
     {{ end }}
   {{ end }}
   
