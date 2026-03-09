@@ -1,4 +1,10 @@
-<!-- credits: https://roneo.org/en/hugo-include-another-file-with-a-shortcode/ -->
+{{/* 
+  Usage: {{< includeMdCode "path/to/file.md" >}}
+  - Strips YAML/JSON frontmatter wrapped in --- ... ---
+  - Displays first markdown code block as pre > code element, with html tags interpreted
+  - credits: https://roneo.org/en/hugo-include-another-file-with-a-shortcode/
+*/}}
+
 {{ $file := .Get 0 }}
 <pre class="monospace-raw">
 {{ (printf "%s%s" .Page.File.Dir $file) | readFile | replaceRE "---([\\r\\n]|.)+---" "" | replaceRE "```" "" | safeHTML }}
