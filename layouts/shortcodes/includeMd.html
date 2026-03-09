@@ -1,0 +1,46 @@
+{{/* 
+  Usage: {{< includeMd "path/to/file.md" >}}
+  - Strips YAML/JSON frontmatter wrapped in --- ... ---
+  - Uses split/index/substr (no regex)
+*/}}
+
+{{- $path := (printf "%s%s" .Page.File.Dir (.Get 0)) -}}
+{{- $raw := readFile $path -}}
+
+{{- /* Normalize CRLF -> LF and strip UTF‑8 BOM if present */ -}}
+{{- $text := replace $raw "\r\n" "\n" -}}
+{{- $text = replace $text "\ufeff" "" -}}
+
+{{- $lines := split $text "\n" -}}
+{{- $scratch := newScratch -}}
+{{- $scratch.Set "start" -1 -}}
+{{- $scratch.Set "end" -1 -}}
+{{- $scratch.Set "delim" "" -}}
+
+{{- range $i, $line := $lines -}}
+  {{- $trim := trim $line " \t\r\n" -}}
+
+  {{- if eq ($scratch.Get "delim") "" -}}
+    {{- if and (ne $trim "") (or (eq $trim "---") (eq $trim "+++")) -}}
+      {{- $scratch.Set "delim" $trim -}}
+      {{- $scratch.Set "start" $i -}}
+    {{- end -}}
+  {{- else -}}
+    {{- if and (eq $trim ($scratch.Get "delim")) (eq ($scratch.Get "end") -1) -}}
+      {{- $scratch.Set "end" $i -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $start := $scratch.Get "start" -}}
+{{- $end := $scratch.Get "end" -}}
+
+{{- if and (ge $start 0) (gt $end $start) -}}
+  {{- $body := delimit (after (add $end 1) $lines) "\n" -}}
+  {{- $body | markdownify -}}
+{{- else -}}
+  {{- $text | markdownify -}}
+{{- end -}}
+
+<!-- HACK: Do not remove this underscore (Preprocessor-Shenanigans) -->
+_
